@@ -244,8 +244,10 @@ const renderDetail = () => {
 const loadCatalog = async () => {
   try {
     // Try loading from GitHub first (always fresh data)
+    console.log("Loading catalog from GitHub...");
     const githubData = await githubModule.loadCatalogFromGitHub();
     if (githubData && Array.isArray(githubData.dresses)) {
+      console.log("✅ Loaded from GitHub:", githubData.dresses.length, "dresses");
       state.dresses = githubData.dresses;
       renderCatalog();
       return;
@@ -255,12 +257,14 @@ const loadCatalog = async () => {
   }
 
   // Fallback to local catalog-data.json
+  console.log("Loading from local catalog-data.json...");
   const url = `${import.meta.env.BASE_URL || ""}catalog-data.json`;
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     state.dresses = Array.isArray(data?.dresses) ? data.dresses : [];
+    console.log("✅ Loaded from local:", state.dresses.length, "dresses");
   } catch (err) {
     console.warn("Using fallback sample catalog", err);
     state.dresses = [

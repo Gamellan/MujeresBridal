@@ -13,8 +13,14 @@ export const githubModule = {
         }
       });
 
-      if (response.status === 404) return null;
-      if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+      if (response.status === 404) {
+        console.warn(`File not found on GitHub: ${path}`);
+        return null;
+      }
+      if (!response.ok) {
+        console.error(`GitHub API error: ${response.status}`);
+        return null;
+      }
 
       return await response.text();
     } catch (err) {
