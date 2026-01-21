@@ -242,29 +242,15 @@ const renderDetail = () => {
 };
 
 const loadCatalog = async () => {
-  try {
-    // Try loading from GitHub first (always fresh data)
-    console.log("Loading catalog from GitHub...");
-    const githubData = await githubModule.loadCatalogFromGitHub();
-    if (githubData && Array.isArray(githubData.dresses)) {
-      console.log("✅ Loaded from GitHub:", githubData.dresses.length, "dresses");
-      state.dresses = githubData.dresses;
-      renderCatalog();
-      return;
-    }
-  } catch (err) {
-    console.warn("Failed to load from GitHub, trying local fallback", err);
-  }
-
-  // Fallback to local catalog-data.json
-  console.log("Loading from local catalog-data.json...");
+  // Load from local catalog-data.json (generated at build time)
+  console.log("Loading catalog from local file...");
   const url = `${import.meta.env.BASE_URL || ""}catalog-data.json`;
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     state.dresses = Array.isArray(data?.dresses) ? data.dresses : [];
-    console.log("✅ Loaded from local:", state.dresses.length, "dresses");
+    console.log("✅ Loaded:", state.dresses.length, "dresses");
   } catch (err) {
     console.warn("Using fallback sample catalog", err);
     state.dresses = [
@@ -525,8 +511,21 @@ const renderAddForm = () => {
     await adminModule.addDress(dress);
     state.dresses = adminModule.getDresses();
     form.reset();
+    
+    // Update list and show it
     renderDressesList();
-    renderCatalog();
+    const listTab = document.querySelector('[data-tab="list"]');
+    const addTab = document.querySelector('[data-tab="add"]');
+    const listTabContent = document.getElementById("list-tab");
+    const addTabContent = document.getElementById("add-tab");
+    
+    if (listTab && addTab && listTabContent && addTabContent) {
+      listTab.classList.add("active");
+      addTab.classList.remove("active");
+      listTabContent.classList.add("active");
+      addTabContent.classList.remove("active");
+    }
+    
     alert("✅ Dress added successfully!");
   });
 };
