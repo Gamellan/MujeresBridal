@@ -526,8 +526,15 @@ const renderAddForm = () => {
       addTab.classList.remove("active");
       listTabContent.classList.add("active");
       addTabContent.classList.remove("active");
+
+      // Update dresses count in tab label
+      listTab.textContent = `Dresses (${adminModule.getDresses().length})`;
     }
-    
+
+    // Re-render public catalog grid with the new dress
+    state.dresses = adminModule.getDresses();
+    renderCatalog();
+
     alert("✅ Dress added successfully!");
   });
 };
