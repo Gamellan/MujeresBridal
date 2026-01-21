@@ -1,6 +1,25 @@
 {
-  "updatedAt": "2026-01-21T14:54:11.590Z",
+  "updatedAt": "2026-01-21T15:08:59.245Z",
   "dresses": [
+    {
+      "slug": "ass-for-a-face",
+      "name": "Ass for a face",
+      "description": "This kid has an as for a face",
+      "price": 50000,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": false,
+      "forSale": false,
+      "forRent": true,
+      "images": [
+        "catalog/ass-for-a-face/cover.png",
+        "catalog/ass-for-a-face/image-0.png"
+      ],
+      "cover": "catalog/ass-for-a-face/cover.png",
+      "tags": [
+        "ass"
+      ]
+    },
     {
       "slug": "sample",
       "name": "SAMPLE",
@@ -17,24 +36,6 @@
       ],
       "cover": "catalog/sample/cover.jpg",
       "tags": []
-    },
-    {
-      "slug": "ass-for-a-face",
-      "name": "Ass for a face",
-      "description": "This kid has an as for a face",
-      "price": 50000,
-      "currency": "PHP",
-      "readyToWear": false,
-      "madeToOrder": false,
-      "forSale": false,
-      "forRent": true,
-      "images": [
-        "catalog/ass-for-a-face/image-0.png"
-      ],
-      "cover": "catalog/ass-for-a-face/cover.png",
-      "tags": [
-        "ass"
-      ]
     }
   ]
 }
