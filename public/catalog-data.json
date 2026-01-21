@@ -1,0 +1,45 @@
+{
+  "updatedAt": "2026-01-21T11:07:52.924Z",
+  "dresses": [
+    {
+      "slug": "sample-dress",
+      "name": "Celeste Sample",
+      "description": "Hand-finished satin column gown with removable organza overskirt. Crafted by independent tailors in Vietnam.",
+      "price": 12800,
+      "currency": "PHP",
+      "readyToWear": true,
+      "madeToOrder": true,
+      "forSale": true,
+      "forRent": false,
+      "images": [
+        "catalog/sample-dress/dress-placeholder.svg"
+      ],
+      "cover": "catalog/sample-dress/dress-placeholder.svg",
+      "tags": [
+        "minimal",
+        "satin",
+        "train"
+      ]
+    },
+    {
+      "slug": "Isabella-Dress",
+      "name": "Isabella",
+      "description": "A perfect blend of vintage-inspired lace and a modern, airy feel. Handcrafted with care and ready to be part of your story.",
+      "price": 12999,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": true,
+      "forRent": false,
+      "images": [
+        "catalog/Isabella-Dress/isabella.jpg"
+      ],
+      "cover": "catalog/Isabella-Dress/isabella.jpg",
+      "tags": [
+        "minimal",
+        "satin",
+        "train"
+      ]
+    }
+  ]
+}

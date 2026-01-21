@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 180" fill="none">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d3b18f;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#d3b18f;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#d3b18f;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Decorative line -->
+  <line x1="50" y1="90" x2="300" y2="90" stroke="url(#logoGrad)" stroke-width="2"/>
+  <line x1="900" y1="90" x2="1150" y2="90" stroke="url(#logoGrad)" stroke-width="2"/>
+  
+  <!-- Brand name -->
+  <text x="600" y="75" text-anchor="middle" font-family="'Playfair Display', serif" font-size="56" font-weight="700" fill="#1f1b16">
+    Mujeres Bridal
+  </text>
+  
+  <!-- Tagline -->
+  <text x="600" y="115" text-anchor="middle" font-family="'Sora', sans-serif" font-size="14" font-weight="300" letter-spacing="3" fill="#5f554a">
+    SIMPLE DESIGNS · FAIR PRICING
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="320" cy="90" r="3" fill="#d3b18f"/>
+  <circle cx="880" cy="90" r="3" fill="#d3b18f"/>
+</svg>

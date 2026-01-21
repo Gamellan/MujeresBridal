@@ -1,0 +1,11 @@
+{
+  "name": "Celeste Sample",
+  "description": "Hand-finished satin column gown with removable organza overskirt. Crafted by independent tailors in Vietnam.",
+  "price": 12800,
+  "currency": "PHP",
+  "readyToWear": true,
+  "madeToOrder": true,
+  "forSale": true,
+  "forRent": false,
+  "tags": ["minimal", "satin", "train"]
+}
