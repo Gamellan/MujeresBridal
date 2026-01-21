@@ -1,8 +1,39 @@
 import { ADMIN_PASSWORD } from "./admin-config.js";
 
+const DB_NAME = "MujeresBridalDB";
+const STORE_NAME = "dresses";
+
+// IndexedDB setup
+const initDB = () => {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, 1);
+
+    request.onerror = () => reject(request.error);
+    request.onsuccess = () => resolve(request.result);
+
+    request.onupgradeneeded = (event) => {
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains(STORE_NAME)) {
+        db.createObjectStore(STORE_NAME, { keyPath: "slug" });
+      }
+    };
+  });
+};
+
 export const adminModule = {
   isLoggedIn: false,
   dresses: [],
+  db: null,
+
+  // Initialize DB
+  async init() {
+    try {
+      this.db = await initDB();
+      await this.loadDresses();
+    } catch (err) {
+      console.error("Failed to init DB:", err);
+    }
+  },
 
   // Login
   login(password) {
@@ -24,27 +55,50 @@ export const adminModule = {
     return this.isLoggedIn;
   },
 
-  // Load dresses from localStorage or passed data
-  loadDresses(catalogData) {
-    const stored = localStorage.getItem("mujersBridalDresses");
-    if (stored) {
-      try {
-        this.dresses = JSON.parse(stored);
-      } catch (err) {
-        this.dresses = catalogData || [];
+  // Load dresses from IndexedDB or fallback to passed data
+  async loadDresses(fallbackData = []) {
+    return new Promise((resolve) => {
+      if (!this.db) {
+        this.dresses = fallbackData;
+        resolve();
+        return;
       }
-    } else {
-      this.dresses = catalogData || [];
-      this.saveDresses();
-    }
+
+      const transaction = this.db.transaction([STORE_NAME], "readonly");
+      const store = transaction.objectStore(STORE_NAME);
+      const request = store.getAll();
+
+      request.onsuccess = () => {
+        this.dresses = request.result.length > 0 ? request.result : fallbackData;
+        resolve();
+      };
+
+      request.onerror = () => {
+        this.dresses = fallbackData;
+        resolve();
+      };
+    });
   },
 
-  saveDresses() {
-    localStorage.setItem("mujersBridalDresses", JSON.stringify(this.dresses));
+  // Save dresses to IndexedDB
+  async saveDresses() {
+    if (!this.db) return;
+
+    return new Promise((resolve, reject) => {
+      const transaction = this.db.transaction([STORE_NAME], "readwrite");
+      const store = transaction.objectStore(STORE_NAME);
+
+      // Clear and re-add all
+      store.clear();
+      this.dresses.forEach((dress) => store.add(dress));
+
+      transaction.onsuccess = () => resolve();
+      transaction.onerror = () => reject(transaction.error);
+    });
   },
 
   // CRUD operations
-  addDress(dress) {
+  async addDress(dress) {
     const newDress = {
       slug: this.generateSlug(dress.name),
       name: dress.name,
@@ -60,25 +114,25 @@ export const adminModule = {
       tags: dress.tags || []
     };
     this.dresses.push(newDress);
-    this.saveDresses();
+    await this.saveDresses();
     return newDress;
   },
 
-  updateDress(slug, updates) {
+  async updateDress(slug, updates) {
     const index = this.dresses.findIndex((d) => d.slug === slug);
     if (index !== -1) {
       this.dresses[index] = { ...this.dresses[index], ...updates };
-      this.saveDresses();
+      await this.saveDresses();
       return this.dresses[index];
     }
     return null;
   },
 
-  deleteDress(slug) {
+  async deleteDress(slug) {
     const index = this.dresses.findIndex((d) => d.slug === slug);
     if (index !== -1) {
       const removed = this.dresses.splice(index, 1);
-      this.saveDresses();
+      await this.saveDresses();
       return removed[0];
     }
     return null;
@@ -90,6 +144,16 @@ export const adminModule = {
 
   getDresses() {
     return this.dresses;
+  },
+
+  // Image handling
+  async convertImageToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   },
 
   // Utility
@@ -107,5 +171,20 @@ export const adminModule = {
       dresses: this.dresses
     };
     return JSON.stringify(payload, null, 2);
+  },
+
+  async importJSON(jsonString) {
+    try {
+      const data = JSON.parse(jsonString);
+      if (Array.isArray(data.dresses)) {
+        this.dresses = data.dresses;
+        await this.saveDresses();
+        return true;
+      }
+      return false;
+    } catch (err) {
+      console.error("Import failed:", err);
+      return false;
+    }
   }
 };

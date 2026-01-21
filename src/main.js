@@ -270,10 +270,11 @@ const loadCatalog = async () => {
 
 const init = async () => {
   adminModule.checkSession();
+  await adminModule.init();
   renderLayout();
   setupFilters();
   await loadCatalog();
-  adminModule.loadDresses(state.dresses);
+  await adminModule.loadDresses(state.dresses);
   setupAdminToggle();
 };
 
@@ -453,8 +454,15 @@ const renderAddForm = () => {
       </div>
     </div>
     <div class="form-group">
+      <label>Cover Image (Upload)</label>
+      <input type="file" name="coverFile" accept="image/*" class="image-input" />
+      <p class="form-hint">or</p>
       <label>Cover Image URL</label>
       <input type="text" name="cover" placeholder="https://..." />
+    </div>
+    <div class="form-group">
+      <label>Additional Images (Optional)</label>
+      <input type="file" name="additionalImages" accept="image/*" multiple class="image-input" />
     </div>
     <div class="form-group">
       <label>Tags (comma-separated)</label>
@@ -463,9 +471,27 @@ const renderAddForm = () => {
     <button type="submit" class="btn btn-primary" style="width: 100%;">Add Dress</button>
   `;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
+    
+    // Handle cover image
+    let coverImage = formData.get("cover");
+    const coverFile = formData.get("coverFile");
+    if (coverFile && coverFile.size > 0) {
+      coverImage = await adminModule.convertImageToBase64(coverFile);
+    }
+
+    // Handle additional images
+    const additionalImages = [];
+    const additionalFiles = formData.getAll("additionalImages");
+    for (const file of additionalFiles) {
+      if (file && file.size > 0) {
+        const base64 = await adminModule.convertImageToBase64(file);
+        additionalImages.push(base64);
+      }
+    }
+
     const dress = {
       name: formData.get("name"),
       description: formData.get("description"),
@@ -475,11 +501,12 @@ const renderAddForm = () => {
       madeToOrder: formData.get("madeToOrder") === "on",
       forSale: formData.get("forSale") === "on",
       forRent: formData.get("forRent") === "on",
-      cover: formData.get("cover"),
-      images: formData.get("cover") ? [formData.get("cover")] : [],
+      cover: coverImage,
+      images: coverImage ? [coverImage, ...additionalImages] : additionalImages,
       tags: formData.get("tags") ? formData.get("tags").split(",").map((t) => t.trim()) : []
     };
-    adminModule.addDress(dress);
+    
+    await adminModule.addDress(dress);
     state.dresses = adminModule.getDresses();
     form.reset();
     renderDressesList();
