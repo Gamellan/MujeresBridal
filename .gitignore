@@ -4,4 +4,4 @@ npm-debug.log*
 yarn-error.log
 pnpm-debug.log
 .vite/
-dist/
+dist/src/admin-config.js

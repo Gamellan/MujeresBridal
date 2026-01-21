@@ -1,4 +1,5 @@
 import { ADMIN_PASSWORD } from "./admin-config.js";
+import { githubModule } from "./github-module.js";
 
 const DB_NAME = "MujeresBridalDB";
 const STORE_NAME = "dresses";
@@ -92,7 +93,15 @@ export const adminModule = {
       store.clear();
       this.dresses.forEach((dress) => store.add(dress));
 
-      transaction.onsuccess = () => resolve();
+      transaction.onsuccess = async () => {
+        // Also save to GitHub
+        const payload = {
+          updatedAt: new Date().toISOString(),
+          dresses: this.dresses
+        };
+        await githubModule.saveCatalogToGitHub(payload);
+        resolve();
+      };
       transaction.onerror = () => reject(transaction.error);
     });
   },

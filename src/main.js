@@ -1,5 +1,6 @@
 import "./style.css";
 import { adminModule } from "./admin-module.js";
+import { githubModule } from "./github-module.js";
 
 const app = document.querySelector("#app");
 
@@ -241,6 +242,19 @@ const renderDetail = () => {
 };
 
 const loadCatalog = async () => {
+  try {
+    // Try loading from GitHub first (always fresh data)
+    const githubData = await githubModule.loadCatalogFromGitHub();
+    if (githubData && Array.isArray(githubData.dresses)) {
+      state.dresses = githubData.dresses;
+      renderCatalog();
+      return;
+    }
+  } catch (err) {
+    console.warn("Failed to load from GitHub, trying local fallback", err);
+  }
+
+  // Fallback to local catalog-data.json
   const url = `${import.meta.env.BASE_URL || ""}catalog-data.json`;
   try {
     const res = await fetch(url);
@@ -331,6 +345,10 @@ const showAdminPanel = () => {
       <div class="admin-tabs">
         <button class="admin-tab active" data-tab="list">Dresses (${adminModule.getDresses().length})</button>
         <button class="admin-tab" data-tab="add">Add New</button>
+      </div>
+      
+      <div class="sync-status" id="sync-status">
+        <span class="sync-indicator">🔄 Synced with GitHub</span>
       </div>
 
       <div id="list-tab" class="admin-tab-content active">
