@@ -574,21 +574,44 @@ const exportCatalogAsZip = async () => {
     dressFolder.file("meta.json", JSON.stringify(meta, null, 2));
     
     // Add cover image
-    if (dress.cover && dress.cover.startsWith('data:')) {
-      const imageData = dress.cover.split(',')[1];
-      const ext = getImageExt(dress.cover);
-      dressFolder.file(`cover.${ext}`, imageData, { base64: true });
+    if (dress.cover) {
+      if (dress.cover.startsWith('data:')) {
+        // Image is base64 (uploaded in this session)
+        const imageData = dress.cover.split(',')[1];
+        const ext = getImageExt(dress.cover);
+        dressFolder.file(`cover.${ext}`, imageData, { base64: true });
+      } else if (!dress.cover.startsWith('http')) {
+        // Image is a local path (already in catalog)
+        try {
+          const response = await fetch(`${import.meta.env.BASE_URL || ""}${dress.cover}`);
+          const blob = await response.blob();
+          dressFolder.file(dress.cover.split('/').pop(), blob);
+        } catch (err) {
+          console.warn(`Could not fetch image: ${dress.cover}`, err);
+        }
+      }
     }
     
     // Add additional images
     if (dress.images) {
-      dress.images.forEach((img, idx) => {
+      for (let idx = 0; idx < dress.images.length; idx++) {
+        const img = dress.images[idx];
         if (img.startsWith('data:')) {
+          // Base64 image (uploaded in this session)
           const imageData = img.split(',')[1];
           const ext = getImageExt(img);
           dressFolder.file(`image-${idx}.${ext}`, imageData, { base64: true });
+        } else if (!img.startsWith('http')) {
+          // Local path (already in catalog)
+          try {
+            const response = await fetch(`${import.meta.env.BASE_URL || ""}${img}`);
+            const blob = await response.blob();
+            dressFolder.file(img.split('/').pop(), blob);
+          } catch (err) {
+            console.warn(`Could not fetch image: ${img}`, err);
+          }
         }
-      });
+      }
     }
   }
   
