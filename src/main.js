@@ -9,7 +9,9 @@ const state = {
     madeToOrder: false,
     forSale: false,
     forRent: false
-  }
+  },
+  currentView: "catalog",
+  selectedDress: null
 };
 
 const formatPrice = (price, currency = "PHP") => {
@@ -103,6 +105,7 @@ const renderCatalog = () => {
   for (const dress of list) {
     const card = document.createElement("article");
     card.className = "card";
+    card.style.cursor = "pointer";
 
     const cover = document.createElement("div");
     cover.className = "card__cover";
@@ -140,6 +143,12 @@ const renderCatalog = () => {
     card.appendChild(badgeRow);
     card.appendChild(body);
 
+    card.addEventListener("click", () => {
+      state.selectedDress = dress;
+      state.currentView = "detail";
+      renderDetail();
+    });
+
     catalogEl.appendChild(card);
   }
 };
@@ -153,6 +162,76 @@ const setupFilters = () => {
       btn.setAttribute("aria-pressed", String(state.filters[key]));
       btn.classList.toggle("active", state.filters[key]);
       renderCatalog();
+    });
+  });
+};
+
+const renderDetail = () => {
+  const dress = state.selectedDress;
+  if (!dress) return;
+
+  app.innerHTML = `
+    <main class="page">
+      <header class="logo-header">
+        <img src="logo.png" alt="Mujeres Bridal" class="logo" />
+      </header>
+      
+      <div class="detail-container">
+        <button class="back-btn" id="back-btn">← Back to catalog</button>
+        
+        <div class="detail-content">
+          <div class="detail-gallery">
+            <div class="detail-main-image">
+              <img src="${dress.cover}" alt="${dress.name}" />
+            </div>
+            ${
+              dress.images && dress.images.length > 1
+                ? `<div class="detail-thumbnails">
+                    ${dress.images
+                      .map(
+                        (img) =>
+                          `<img src="${img}" alt="thumbnail" class="detail-thumb" data-image="${img}">`
+                      )
+                      .join("")}
+                  </div>`
+                : ""
+            }
+          </div>
+          
+          <div class="detail-info">
+            <h1>${dress.name}</h1>
+            <p class="detail-description">${dress.description || "Minimal bridal silhouette."}</p>
+            
+            <div class="detail-price">${formatPrice(dress.price, dress.currency)}</div>
+            
+            <div class="detail-badges">
+              ${dress.readyToWear ? `<span class="pill soft">Ready to wear</span>` : ""}
+              ${dress.madeToOrder ? `<span class="pill soft">Made to order</span>` : ""}
+              ${dress.forSale ? `<span class="pill outline">For sale</span>` : ""}
+              ${dress.forRent ? `<span class="pill outline">For rent</span>` : ""}
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  `;
+
+  document.getElementById("back-btn").addEventListener("click", () => {
+    state.currentView = "catalog";
+    state.selectedDress = null;
+    renderLayout();
+    setupFilters();
+    renderCatalog();
+  });
+
+  // Gallery thumbnail clicks
+  const thumbnails = document.querySelectorAll(".detail-thumb");
+  const mainImage = document.querySelector(".detail-main-image img");
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      mainImage.src = thumb.getAttribute("data-image");
+      thumbnails.forEach((t) => t.classList.remove("active"));
+      thumb.classList.add("active");
     });
   });
 };
