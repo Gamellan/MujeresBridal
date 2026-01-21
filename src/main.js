@@ -1,4 +1,5 @@
 import "./style.css";
+import { adminModule } from "./admin-module.js";
 
 const app = document.querySelector("#app");
 
@@ -34,7 +35,10 @@ const renderLayout = () => {
   app.innerHTML = `
     <main class="page">
       <header class="logo-header">
-        <img src="logo.png" alt="Mujeres Bridal" class="logo" />
+        <div class="logo-container">
+          <img src="logo.png" alt="Mujeres Bridal" class="logo" />
+          <button id="admin-toggle-btn" class="admin-toggle" title="Admin panel">⚙️</button>
+        </div>
       </header>
       
       <section class="hero">
@@ -265,9 +269,250 @@ const loadCatalog = async () => {
 };
 
 const init = async () => {
+  adminModule.checkSession();
   renderLayout();
   setupFilters();
   await loadCatalog();
+  adminModule.loadDresses(state.dresses);
+  setupAdminToggle();
+};
+
+// Admin Panel Functions
+const showLoginModal = () => {
+  const modal = document.createElement("div");
+  modal.className = "modal modal-open";
+  modal.innerHTML = `
+    <div class="modal-content">
+      <h2>Admin Login</h2>
+      <p>Enter the admin password to manage the catalog</p>
+      <input type="password" id="admin-password" placeholder="Password" class="admin-input" />
+      <div class="modal-buttons">
+        <button class="btn btn-primary" id="login-btn">Login</button>
+        <button class="btn btn-secondary" id="close-modal-btn">Cancel</button>
+      </div>
+    </div>
+  `;
+  app.appendChild(modal);
+
+  document.getElementById("login-btn").addEventListener("click", () => {
+    const password = document.getElementById("admin-password").value;
+    if (adminModule.login(password)) {
+      modal.remove();
+      showAdminPanel();
+    } else {
+      alert("❌ Incorrect password");
+    }
+  });
+
+  document.getElementById("close-modal-btn").addEventListener("click", () => {
+    modal.remove();
+  });
+
+  document.getElementById("admin-password").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      document.getElementById("login-btn").click();
+    }
+  });
+
+  setTimeout(() => document.getElementById("admin-password").focus(), 100);
+};
+
+const showAdminPanel = () => {
+  const modal = document.createElement("div");
+  modal.className = "modal modal-open admin-panel-modal";
+  modal.innerHTML = `
+    <div class="admin-panel">
+      <div class="admin-header">
+        <h2>Catalog Manager</h2>
+        <button class="close-btn" id="close-admin-btn">✕</button>
+      </div>
+      
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="list">Dresses (${adminModule.getDresses().length})</button>
+        <button class="admin-tab" data-tab="add">Add New</button>
+      </div>
+
+      <div id="list-tab" class="admin-tab-content active">
+        <div id="dresses-list" class="dresses-table"></div>
+      </div>
+
+      <div id="add-tab" class="admin-tab-content">
+        <form id="add-dress-form" class="dress-form"></form>
+      </div>
+
+      <div class="admin-footer">
+        <button class="btn btn-secondary" id="export-btn">📥 Export JSON</button>
+        <button class="btn btn-danger" id="logout-btn">Logout</button>
+      </div>
+    </div>
+  `;
+  app.appendChild(modal);
+
+  // Tab switching
+  document.querySelectorAll(".admin-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".admin-tab").forEach((t) => t.classList.remove("active"));
+      document.querySelectorAll(".admin-tab-content").forEach((c) => c.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.tab + "-tab").classList.add("active");
+    });
+  });
+
+  // Render dresses list
+  renderDressesList();
+
+  // Render add form
+  renderAddForm();
+
+  // Close admin
+  document.getElementById("close-admin-btn").addEventListener("click", () => {
+    modal.remove();
+  });
+
+  // Export
+  document.getElementById("export-btn").addEventListener("click", () => {
+    const json = adminModule.exportJSON();
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "catalog-data.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // Logout
+  document.getElementById("logout-btn").addEventListener("click", () => {
+    adminModule.logout();
+    modal.remove();
+  });
+};
+
+const renderDressesList = () => {
+  const list = document.getElementById("dresses-list");
+  const dresses = adminModule.getDresses();
+
+  list.innerHTML = dresses
+    .map(
+      (dress) => `
+    <div class="dress-item">
+      <div class="dress-item-info">
+        <h4>${dress.name}</h4>
+        <p>${dress.description.substring(0, 60)}...</p>
+        <p class="dress-price">${formatPrice(dress.price, dress.currency)}</p>
+      </div>
+      <div class="dress-item-actions">
+        <button class="btn btn-sm btn-primary" onclick="window.editDress('${dress.slug}')">Edit</button>
+        <button class="btn btn-sm btn-danger" onclick="window.deleteDress('${dress.slug}')">Delete</button>
+      </div>
+    </div>
+  `
+    )
+    .join("");
+};
+
+const renderAddForm = () => {
+  const form = document.getElementById("add-dress-form");
+  form.innerHTML = `
+    <div class="form-group">
+      <label>Name *</label>
+      <input type="text" name="name" required placeholder="e.g., Rose Gown" />
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description" placeholder="Describe the dress..."></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Price (PHP)</label>
+        <input type="number" name="price" placeholder="e.g., 12800" />
+      </div>
+      <div class="form-group">
+        <label>Currency</label>
+        <input type="text" name="currency" value="PHP" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group checkbox">
+        <input type="checkbox" name="readyToWear" id="rtw" />
+        <label for="rtw">Ready to wear</label>
+      </div>
+      <div class="form-group checkbox">
+        <input type="checkbox" name="madeToOrder" id="mto" />
+        <label for="mto">Made to order</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group checkbox">
+        <input type="checkbox" name="forSale" id="fs" />
+        <label for="fs">For sale</label>
+      </div>
+      <div class="form-group checkbox">
+        <input type="checkbox" name="forRent" id="fr" />
+        <label for="fr">For rent</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Cover Image URL</label>
+      <input type="text" name="cover" placeholder="https://..." />
+    </div>
+    <div class="form-group">
+      <label>Tags (comma-separated)</label>
+      <input type="text" name="tags" placeholder="e.g., satin, minimal, elegant" />
+    </div>
+    <button type="submit" class="btn btn-primary" style="width: 100%;">Add Dress</button>
+  `;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const dress = {
+      name: formData.get("name"),
+      description: formData.get("description"),
+      price: formData.get("price") ? parseFloat(formData.get("price")) : null,
+      currency: formData.get("currency"),
+      readyToWear: formData.get("readyToWear") === "on",
+      madeToOrder: formData.get("madeToOrder") === "on",
+      forSale: formData.get("forSale") === "on",
+      forRent: formData.get("forRent") === "on",
+      cover: formData.get("cover"),
+      images: formData.get("cover") ? [formData.get("cover")] : [],
+      tags: formData.get("tags") ? formData.get("tags").split(",").map((t) => t.trim()) : []
+    };
+    adminModule.addDress(dress);
+    state.dresses = adminModule.getDresses();
+    form.reset();
+    renderDressesList();
+    renderCatalog();
+    alert("✅ Dress added successfully!");
+  });
+};
+
+const setupAdminToggle = () => {
+  const btn = document.getElementById("admin-toggle-btn");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      if (adminModule.isLoggedIn) {
+        showAdminPanel();
+      } else {
+        showLoginModal();
+      }
+    });
+  }
+};
+
+// Global functions for delete
+window.deleteDress = (slug) => {
+  if (confirm("Are you sure?")) {
+    adminModule.deleteDress(slug);
+    state.dresses = adminModule.getDresses();
+    renderDressesList();
+    renderCatalog();
+  }
+};
+
+window.editDress = (slug) => {
+  alert("Edit feature coming soon! For now, you can delete and re-add.");
 };
 
 init();
