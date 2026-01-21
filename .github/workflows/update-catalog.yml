@@ -1,0 +1,33 @@
+name: Update Catalog
+
+on:
+  workflow_dispatch:
+    inputs:
+      catalog_data:
+        description: 'Catalog JSON data'
+        required: true
+        type: string
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Update catalog file
+        run: |
+          echo '${{ inputs.catalog_data }}' > public/catalog-data.json
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/catalog-data.json
+          git diff --staged --quiet || git commit -m "Update catalog via admin panel"
+          git push

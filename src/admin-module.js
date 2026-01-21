@@ -94,12 +94,17 @@ export const adminModule = {
       this.dresses.forEach((dress) => store.add(dress));
 
       transaction.onsuccess = async () => {
-        // Also save to GitHub
+        // Trigger GitHub Action workflow to update catalog
         const payload = {
           updatedAt: new Date().toISOString(),
           dresses: this.dresses
         };
-        await githubModule.saveCatalogToGitHub(payload);
+        const success = await githubModule.saveCatalogToGitHub(payload);
+        if (success) {
+          console.log("📤 Catalog sync triggered. Changes will appear in ~30 seconds.");
+        } else {
+          console.warn("⚠️ Catalog sync failed. Changes saved locally only.");
+        }
         resolve();
       };
       transaction.onerror = () => reject(transaction.error);
