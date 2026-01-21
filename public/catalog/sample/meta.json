@@ -1,0 +1,11 @@
+{
+  "name": "SAMPLE",
+  "description": "",
+  "price": 15000,
+  "currency": "PHP",
+  "readyToWear": false,
+  "madeToOrder": true,
+  "forSale": false,
+  "forRent": false,
+  "tags": []
+}

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-01-21T12:27:29.792Z",
+  "updatedAt": "2026-01-21T14:29:03.848Z",
   "dresses": [
     {
       "slug": "sample-dress",
@@ -40,6 +40,22 @@
         "satin",
         "train"
       ]
+    },
+    {
+      "slug": "sample",
+      "name": "SAMPLE",
+      "description": "",
+      "price": 15000,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": false,
+      "forRent": false,
+      "images": [
+        "catalog/sample/image-0.jpg"
+      ],
+      "cover": "catalog/sample/cover.jpg",
+      "tags": []
     }
   ]
 }
