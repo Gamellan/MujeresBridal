@@ -1,5 +1,6 @@
 import "./style.css";
 import { adminModule } from "./admin-module.js";
+import JSZip from "jszip";
 
 const app = document.querySelector("#app");
 
@@ -393,20 +394,8 @@ const showAdminPanel = () => {
   });
 
   // Export
-  document.getElementById("export-btn").addEventListener("click", () => {
-    const data = {
-      updatedAt: new Date().toISOString(),
-      dresses: adminModule.getDresses()
-    };
-    const json = JSON.stringify(data, null, 2);
-    const blob = new Blob([json], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "catalog-data.json";
-    a.click();
-    URL.revokeObjectURL(url);
-    alert("✅ JSON exported. Now:\n1. Upload this file to public/catalog-data.json\n2. Commit and push to GitHub");
+  document.getElementById("export-btn").addEventListener("click", async () => {
+    await exportCatalogAsZip();
   });
 
   // Logout
@@ -540,6 +529,86 @@ const renderAddForm = () => {
     renderCatalog();
     alert("✅ Dress added successfully!");
   });
+};
+
+const exportCatalogAsZip = async () => {
+  const zip = new JSZip();
+  const dresses = adminModule.getDresses();
+  
+  // Create catalog-data.json with paths instead of base64
+  const catalogData = {
+    updatedAt: new Date().toISOString(),
+    dresses: dresses.map(dress => ({
+      ...dress,
+      cover: dress.cover && dress.cover.startsWith('data:') 
+        ? `catalog/${dress.slug}/cover.${getImageExt(dress.cover)}`
+        : dress.cover,
+      images: dress.images ? dress.images.map((img, idx) => 
+        img.startsWith('data:') 
+          ? `catalog/${dress.slug}/image-${idx}.${getImageExt(img)}`
+          : img
+      ) : []
+    }))
+  };
+  
+  // Add catalog-data.json
+  zip.folder("public").file("catalog-data.json", JSON.stringify(catalogData, null, 2));
+  
+  // Add dress folders with images
+  for (const dress of dresses) {
+    const dressFolder = zip.folder(`public/catalog/${dress.slug}`);
+    
+    // Add meta.json
+    const meta = {
+      name: dress.name,
+      description: dress.description,
+      price: dress.price,
+      currency: dress.currency,
+      readyToWear: dress.readyToWear,
+      madeToOrder: dress.madeToOrder,
+      forSale: dress.forSale,
+      forRent: dress.forRent,
+      tags: dress.tags || []
+    };
+    dressFolder.file("meta.json", JSON.stringify(meta, null, 2));
+    
+    // Add cover image
+    if (dress.cover && dress.cover.startsWith('data:')) {
+      const imageData = dress.cover.split(',')[1];
+      const ext = getImageExt(dress.cover);
+      dressFolder.file(`cover.${ext}`, imageData, { base64: true });
+    }
+    
+    // Add additional images
+    if (dress.images) {
+      dress.images.forEach((img, idx) => {
+        if (img.startsWith('data:')) {
+          const imageData = img.split(',')[1];
+          const ext = getImageExt(img);
+          dressFolder.file(`image-${idx}.${ext}`, imageData, { base64: true });
+        }
+      });
+    }
+  }
+  
+  // Generate and download ZIP
+  const blob = await zip.generateAsync({ type: "blob" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `MujeresBridal-catalog-${new Date().toISOString().split('T')[0]}.zip`;
+  a.click();
+  URL.revokeObjectURL(url);
+  
+  alert("✅ Catalog exported as ZIP!\n\nTo update GitHub:\n1. Extract the ZIP\n2. Copy 'public/catalog-data.json' to your repo\n3. Copy 'public/catalog/' folders to your repo\n4. Commit and push");
+};
+
+const getImageExt = (dataUrl) => {
+  if (dataUrl.includes('image/jpeg')) return 'jpg';
+  if (dataUrl.includes('image/png')) return 'png';
+  if (dataUrl.includes('image/webp')) return 'webp';
+  if (dataUrl.includes('image/svg')) return 'svg';
+  return 'jpg';
 };
 
 const setupAdminToggle = () => {
