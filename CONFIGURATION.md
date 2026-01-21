@@ -1,82 +1,140 @@
 # Configuration Guide
 
-## Admin Panel Setup
+## Overview
+- **Purpose:** Simple, static bridal dress catalog
+- **Hosting:** GitHub Pages (serves from `docs/`)
+- **Data source:** `public/catalog-data.json` generated from `public/catalog/`
+- **No admin panel, no local database** – purely static for catalog viewing
 
-### 1. GitHub Token for Data Persistence
+## How to Add or Update Dresses
 
-To enable data synchronization across devices, you need to set up a GitHub personal access token:
+1. Create a folder in `public/catalog/` with a unique name (e.g., `river-gown/`)
+2. Add dress images (JPG, PNG, WebP, AVIF, SVG) to that folder
+3. Optionally create a `meta.json` file with details:
 
-1. **Generate a Token:**
-   - Go to https://github.com/settings/tokens/new
-   - Name: `MujeresBridalToken`
-   - Select scope: `repo` (full control of private repositories)
-   - Copy the token
-
-2. **Add to Configuration:**
-   - Copy `src/admin-config.example.js` to `src/admin-config.js`
-   - Replace the `GITHUB_TOKEN` value with your token:
-   ```javascript
-   export const GITHUB_TOKEN = "your_token_here";
-   ```
-
-3. **Security Note:**
-   - `src/admin-config.js` is in `.gitignore` and should NEVER be committed to GitHub
-   - Keep your token secret!
-
-### 2. Admin Credentials
-
-Default admin password is: `Mujeresbridalpass2026!`
-
-Change it in `src/admin-config.js`:
-```javascript
-export const ADMIN_PASSWORD = "your_secure_password";
+```json
+{
+  "name": "River Gown",
+  "description": "Bias-cut silk with soft drape.",
+  "price": 14500,
+  "currency": "PHP",
+  "readyToWear": true,
+  "madeToOrder": true,
+  "forSale": true,
+  "forRent": false,
+  "tags": ["silk", "bias-cut"]
+}
 ```
 
-### 3. How Data Persistence Works
+4. Run `npm run generate` to rebuild `public/catalog-data.json` from folders
+5. Run `npm run build` to build static site (outputs to `docs/`)
+6. Commit and push to GitHub — Pages will automatically serve updates
 
-- When you make changes in the admin panel, data is saved to:
-  1. **IndexedDB** (local browser storage - instant)
-  2. **GitHub** (via API - automatic sync)
-
-- When anyone loads the site, the app:
-  1. Loads fresh data from GitHub
-  2. Falls back to local catalog if GitHub is unavailable
-
-### 4. Deploying to Production (Netlify)
-
-For Netlify to work with GitHub sync:
-
-1. **Set Environment Variables in Netlify:**
-   - Go to Netlify → Site settings → Build & deploy → Environment
-   - Add:
-     - `GITHUB_TOKEN` = your token
-     - `GITHUB_REPO` = `Gamellan/MujeresBridal`
-     - `GITHUB_BRANCH` = `main`
-
-2. **Update Code to Read from Environment:**
-   The app should be updated to read tokens from `process.env` or Netlify secrets instead of the config file.
-
-### 5. Testing Locally
+## Local Development
 
 ```bash
-npm run dev          # Start dev server
-npm run build        # Build for production
-npm run watch        # Watch for catalog changes
-npm run generate     # Generate catalog data
+npm install          # Install dependencies
+npm run generate     # Generate catalog data from public/catalog/
+npm run dev          # Start dev server at http://localhost:5173/
+npm run watch        # Watch public/catalog/ and auto-regenerate data
+npm run build        # Build static site to docs/
 ```
 
-### 6. Troubleshooting
+### Development Workflow
 
-**Data not syncing to GitHub:**
-- Check browser console (F12) for error messages
-- Verify token is correct
-- Verify GitHub repo name and branch are correct
+For fastest feedback, open two terminals:
 
-**Can't access admin panel:**
-- Ensure `src/admin-config.js` exists with correct password
-- Clear browser cache and reload
+**Terminal 1:**
+```bash
+npm run watch
+```
+Auto-regenerates `public/catalog-data.json` when you add/edit files or folders.
+
+**Terminal 2:**
+```bash
+npm run dev
+```
+Runs Vite dev server with hot reload.
+
+Now you can:
+- Add/edit images in `public/catalog/` folders
+- Add/update `meta.json` files  
+- Watch changes **instantly in the browser**
+
+## Fields in meta.json
+
+All fields are optional (defaults are used if missing):
+
+| Field | Type | Default |
+|-------|------|---------|
+| `name` | string | Folder name (title-cased) |
+| `description` | string | (empty) |
+| `price` | number | (null → shows "Request pricing") |
+| `currency` | string | `"PHP"` |
+| `readyToWear` | boolean | `true` |
+| `madeToOrder` | boolean | `false` |
+| `forSale` | boolean | `true` |
+| `forRent` | boolean | `false` |
+| `tags` | array | `[]` |
+
+## Deploying to GitHub Pages
+
+1. Ensure GitHub Pages is set to serve from `main` branch, `docs/` folder
+2. After adding/editing dresses:
+   ```bash
+   npm run generate && npm run build
+   ```
+3. Commit and push:
+   ```bash
+   git add -A
+   git commit -m "Add new dress or update catalog"
+   git push
+   ```
+4. Pages automatically deploys within seconds
+
+## Cache Busting
+
+The app fetches `catalog-data.json` with a timestamp query parameter (`?t=...`) to avoid stale caches. This ensures users always see the latest catalog after a push.
+
+## Folder Structure Example
+
+```
+public/catalog/
+├── river-gown/
+│   ├── dress-1.jpg
+│   ├── dress-2.jpg
+│   └── meta.json
+├── rose-gown/
+│   ├── photo.png
+│   └── meta.json
+└── sample-dress/
+    └── placeholder.svg
+```
+
+## Gallery Features
+
+- Responsive grid on catalog page
+- Click dress cards to view details
+- In detail view:
+  - Click thumbnails to change main image
+  - Use ‹ › buttons to navigate images
+  - Press left/right arrow keys
+  - Swipe left/right on mobile
+- Filters by ready-to-wear, made-to-order, for sale, for rent
+
+## Troubleshooting
+
+**Catalog not updating after push:**
+- Run `npm run generate` to rebuild `catalog-data.json`
+- Run `npm run build` to update `docs/`
+- Hard refresh browser (Ctrl+Shift+R or Cmd+Shift+R) if needed
 
 **Images not showing:**
-- Images are stored as base64 in the database
-- Large images may cause performance issues
-- Consider optimizing image size before upload
+- Ensure images are in a subfolder under `public/catalog/`
+- Supported formats: JPG, PNG, WebP, AVIF, SVG
+- Check file paths in `meta.json` if using custom URLs
+
+**Want to preview locally:**
+- Run `npm run dev` and open http://localhost:5173/MujeresBridal
+- Or run `npm run build` then open `docs/index.html` in a browser
+

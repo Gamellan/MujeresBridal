@@ -1,6 +1,4 @@
 import "./style.css";
-import { adminModule } from "./admin-module.js";
-import JSZip from "jszip";
 
 const app = document.querySelector("#app");
 
@@ -36,10 +34,7 @@ const renderLayout = () => {
   app.innerHTML = `
     <main class="page">
       <header class="logo-header">
-        <div class="logo-container">
-          <img src="logo.png" alt="Mujeres Bridal" class="logo" />
-          <button id="admin-toggle-btn" class="admin-toggle" title="Admin panel">⚙️</button>
-        </div>
+        <img src="logo.png" alt="Mujeres Bridal" class="logo" />
       </header>
       
       <section class="hero">
@@ -187,7 +182,9 @@ const renderDetail = () => {
         <div class="detail-content">
           <div class="detail-gallery">
             <div class="detail-main-image">
+              <button class="nav-btn prev" aria-label="Previous image">‹</button>
               <img src="${dress.cover}" alt="${dress.name}" />
+              <button class="nav-btn next" aria-label="Next image">›</button>
             </div>
             ${
               dress.images && dress.images.length > 1
@@ -229,15 +226,69 @@ const renderDetail = () => {
     renderCatalog();
   });
 
-  // Gallery thumbnail clicks
-  const thumbnails = document.querySelectorAll(".detail-thumb");
+  // Build image list ensuring cover is included and ordered
+  const images = Array.isArray(dress.images) ? dress.images.slice() : [];
+  const hasCoverInImages = images.includes(dress.cover);
+  const imagesList = hasCoverInImages ? images : [dress.cover, ...images];
+
+  // DOM refs
   const mainImage = document.querySelector(".detail-main-image img");
+  const thumbnails = document.querySelectorAll(".detail-thumb");
+  const prevBtn = document.querySelector(".nav-btn.prev");
+  const nextBtn = document.querySelector(".nav-btn.next");
+
+  // State
+  let currentIndex = imagesList.findIndex((src) => src === mainImage.src || src === dress.cover);
+  if (currentIndex < 0) currentIndex = 0;
+
+  const setActiveThumb = (src) => {
+    thumbnails.forEach((t) => t.classList.toggle("active", t.getAttribute("data-image") === src));
+  };
+
+  const updateMainImage = (idx) => {
+    if (!imagesList.length) return;
+    currentIndex = (idx + imagesList.length) % imagesList.length;
+    const src = imagesList[currentIndex];
+    mainImage.src = src;
+    setActiveThumb(src);
+  };
+
+  // Init active thumb
+  setActiveThumb(imagesList[currentIndex]);
+
+  // Thumbnail click handlers
   thumbnails.forEach((thumb) => {
     thumb.addEventListener("click", () => {
-      mainImage.src = thumb.getAttribute("data-image");
-      thumbnails.forEach((t) => t.classList.remove("active"));
-      thumb.classList.add("active");
+      const imgSrc = thumb.getAttribute("data-image");
+      const idx = imagesList.indexOf(imgSrc);
+      updateMainImage(idx >= 0 ? idx : currentIndex);
     });
+  });
+
+  // Prev/Next buttons
+  if (prevBtn) prevBtn.addEventListener("click", () => updateMainImage(currentIndex - 1));
+  if (nextBtn) nextBtn.addEventListener("click", () => updateMainImage(currentIndex + 1));
+
+  // Keyboard navigation
+  const onKey = (e) => {
+    if (e.key === "ArrowLeft") updateMainImage(currentIndex - 1);
+    if (e.key === "ArrowRight") updateMainImage(currentIndex + 1);
+  };
+  document.addEventListener("keydown", onKey, { once: false });
+
+  // Touch swipe for mobile
+  let touchStartX = null;
+  mainImage.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  mainImage.addEventListener("touchend", (e) => {
+    if (touchStartX == null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 30) {
+      if (dx > 0) updateMainImage(currentIndex - 1);
+      else updateMainImage(currentIndex + 1);
+    }
+    touchStartX = null;
   });
 };
 
@@ -275,398 +326,9 @@ const loadCatalog = async () => {
 };
 
 const init = async () => {
-  adminModule.checkSession();
-  await adminModule.init();
   renderLayout();
   setupFilters();
   await loadCatalog();
-  // Sync admin module dresses with loaded state
-  await adminModule.loadDresses(state.dresses);
-  setupAdminToggle();
-};
-
-// Admin Panel Functions
-const showLoginModal = () => {
-  const modal = document.createElement("div");
-  modal.className = "modal modal-open";
-  modal.innerHTML = `
-    <div class="modal-content">
-      <h2>Admin Login</h2>
-      <p>Enter the admin password to manage the catalog</p>
-      <input type="password" id="admin-password" placeholder="Password" class="admin-input" />
-      <div class="modal-buttons">
-        <button class="btn btn-primary" id="login-btn">Login</button>
-        <button class="btn btn-secondary" id="close-modal-btn">Cancel</button>
-      </div>
-    </div>
-  `;
-  app.appendChild(modal);
-
-  document.getElementById("login-btn").addEventListener("click", () => {
-    const password = document.getElementById("admin-password").value;
-    if (adminModule.login(password)) {
-      modal.remove();
-      showAdminPanel();
-    } else {
-      alert("❌ Incorrect password");
-    }
-  });
-
-  document.getElementById("close-modal-btn").addEventListener("click", () => {
-    modal.remove();
-  });
-
-  document.getElementById("admin-password").addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      document.getElementById("login-btn").click();
-    }
-  });
-
-  setTimeout(() => document.getElementById("admin-password").focus(), 100);
-};
-
-const showAdminPanel = () => {
-  const modal = document.createElement("div");
-  modal.className = "modal modal-open admin-panel-modal";
-  modal.innerHTML = `
-    <div class="admin-panel">
-      <div class="admin-header">
-        <h2>Catalog Manager</h2>
-        <button class="close-btn" id="close-admin-btn">✕</button>
-      </div>
-      
-      <div class="admin-tabs">
-        <button class="admin-tab active" data-tab="list">Dresses (${adminModule.getDresses().length})</button>
-        <button class="admin-tab" data-tab="add">Add New</button>
-      </div>
-      
-      <div class="sync-status" id="sync-status">
-        <span class="sync-indicator">🔄 Synced with GitHub</span>
-      </div>
-
-      <div id="list-tab" class="admin-tab-content active">
-        <div id="dresses-list" class="dresses-table"></div>
-      </div>
-
-      <div id="add-tab" class="admin-tab-content">
-        <form id="add-dress-form" class="dress-form"></form>
-      </div>
-
-      <div class="admin-footer">
-        <button class="btn btn-secondary" id="export-btn">📥 Export JSON</button>
-        <button class="btn btn-danger" id="logout-btn">Logout</button>
-      </div>
-    </div>
-  `;
-  app.appendChild(modal);
-
-  // Tab switching
-  document.querySelectorAll(".admin-tab").forEach((tab) => {
-    tab.addEventListener("click", () => {
-      document.querySelectorAll(".admin-tab").forEach((t) => t.classList.remove("active"));
-      document.querySelectorAll(".admin-tab-content").forEach((c) => c.classList.remove("active"));
-      tab.classList.add("active");
-      document.getElementById(tab.dataset.tab + "-tab").classList.add("active");
-    });
-  });
-
-  // Render dresses list
-  renderDressesList();
-
-  // Render add form
-  renderAddForm();
-
-  // Close admin
-  document.getElementById("close-admin-btn").addEventListener("click", () => {
-    modal.remove();
-  });
-
-  // Export
-  document.getElementById("export-btn").addEventListener("click", async () => {
-    await exportCatalogAsZip();
-  });
-
-  // Logout
-  document.getElementById("logout-btn").addEventListener("click", () => {
-    adminModule.logout();
-    modal.remove();
-  });
-};
-
-const renderDressesList = () => {
-  const list = document.getElementById("dresses-list");
-  const dresses = adminModule.getDresses();
-
-  list.innerHTML = dresses
-    .map(
-      (dress) => `
-    <div class="dress-item">
-      <div class="dress-item-info">
-        <h4>${dress.name}</h4>
-        <p>${dress.description.substring(0, 60)}...</p>
-        <p class="dress-price">${formatPrice(dress.price, dress.currency)}</p>
-      </div>
-      <div class="dress-item-actions">
-        <button class="btn btn-sm btn-primary" onclick="window.editDress('${dress.slug}')">Edit</button>
-        <button class="btn btn-sm btn-danger" onclick="window.deleteDress('${dress.slug}')">Delete</button>
-      </div>
-    </div>
-  `
-    )
-    .join("");
-};
-
-const renderAddForm = () => {
-  const form = document.getElementById("add-dress-form");
-  form.innerHTML = `
-    <div class="form-group">
-      <label>Name *</label>
-      <input type="text" name="name" required placeholder="e.g., Rose Gown" />
-    </div>
-    <div class="form-group">
-      <label>Description</label>
-      <textarea name="description" placeholder="Describe the dress..."></textarea>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Price (PHP)</label>
-        <input type="number" name="price" placeholder="e.g., 12800" />
-      </div>
-      <div class="form-group">
-        <label>Currency</label>
-        <input type="text" name="currency" value="PHP" />
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group checkbox">
-        <input type="checkbox" name="readyToWear" id="rtw" />
-        <label for="rtw">Ready to wear</label>
-      </div>
-      <div class="form-group checkbox">
-        <input type="checkbox" name="madeToOrder" id="mto" />
-        <label for="mto">Made to order</label>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group checkbox">
-        <input type="checkbox" name="forSale" id="fs" />
-        <label for="fs">For sale</label>
-      </div>
-      <div class="form-group checkbox">
-        <input type="checkbox" name="forRent" id="fr" />
-        <label for="fr">For rent</label>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Cover Image (Upload)</label>
-      <input type="file" name="coverFile" accept="image/*" class="image-input" />
-      <p class="form-hint">or</p>
-      <label>Cover Image URL</label>
-      <input type="text" name="cover" placeholder="https://..." />
-    </div>
-    <div class="form-group">
-      <label>Additional Images (Optional)</label>
-      <input type="file" name="additionalImages" accept="image/*" multiple class="image-input" />
-    </div>
-    <div class="form-group">
-      <label>Tags (comma-separated)</label>
-      <input type="text" name="tags" placeholder="e.g., satin, minimal, elegant" />
-    </div>
-    <button type="submit" class="btn btn-primary" style="width: 100%;">Add Dress</button>
-  `;
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    
-    // Handle cover image
-    let coverImage = formData.get("cover");
-    const coverFile = formData.get("coverFile");
-    if (coverFile && coverFile.size > 0) {
-      coverImage = await adminModule.convertImageToBase64(coverFile);
-    }
-
-    // Handle additional images
-    const additionalImages = [];
-    const additionalFiles = formData.getAll("additionalImages");
-    for (const file of additionalFiles) {
-      if (file && file.size > 0) {
-        const base64 = await adminModule.convertImageToBase64(file);
-        additionalImages.push(base64);
-      }
-    }
-
-    const dress = {
-      name: formData.get("name"),
-      description: formData.get("description"),
-      price: formData.get("price") ? parseFloat(formData.get("price")) : null,
-      currency: formData.get("currency"),
-      readyToWear: formData.get("readyToWear") === "on",
-      madeToOrder: formData.get("madeToOrder") === "on",
-      forSale: formData.get("forSale") === "on",
-      forRent: formData.get("forRent") === "on",
-      cover: coverImage,
-      images: coverImage ? [coverImage, ...additionalImages] : additionalImages,
-      tags: formData.get("tags") ? formData.get("tags").split(",").map((t) => t.trim()) : []
-    };
-    
-    await adminModule.addDress(dress);
-    state.dresses = adminModule.getDresses();
-    form.reset();
-    
-    // Update list and show it
-    renderDressesList();
-    const listTab = document.querySelector('[data-tab="list"]');
-    const addTab = document.querySelector('[data-tab="add"]');
-    const listTabContent = document.getElementById("list-tab");
-    const addTabContent = document.getElementById("add-tab");
-    
-    if (listTab && addTab && listTabContent && addTabContent) {
-      listTab.classList.add("active");
-      addTab.classList.remove("active");
-      listTabContent.classList.add("active");
-      addTabContent.classList.remove("active");
-
-      // Update dresses count in tab label
-      listTab.textContent = `Dresses (${adminModule.getDresses().length})`;
-    }
-
-    // Re-render public catalog grid with the new dress
-    state.dresses = adminModule.getDresses();
-    renderCatalog();
-
-    alert("✅ Dress added successfully!");
-  });
-};
-
-const exportCatalogAsZip = async () => {
-  const zip = new JSZip();
-  const dresses = adminModule.getDresses();
-  
-  // Create catalog-data.json with paths instead of base64
-  const catalogData = {
-    updatedAt: new Date().toISOString(),
-    dresses: dresses.map(dress => ({
-      ...dress,
-      cover: dress.cover && dress.cover.startsWith('data:') 
-        ? `catalog/${dress.slug}/cover.${getImageExt(dress.cover)}`
-        : dress.cover,
-      images: dress.images ? dress.images.map((img, idx) => 
-        img.startsWith('data:') 
-          ? `catalog/${dress.slug}/image-${idx}.${getImageExt(img)}`
-          : img
-      ) : []
-    }))
-  };
-  
-  // Add catalog-data.json
-  zip.folder("public").file("catalog-data.json", JSON.stringify(catalogData, null, 2));
-  
-  // Add dress folders with images
-  for (const dress of dresses) {
-    const dressFolder = zip.folder(`public/catalog/${dress.slug}`);
-    
-    // Add meta.json
-    const meta = {
-      name: dress.name,
-      description: dress.description,
-      price: dress.price,
-      currency: dress.currency,
-      readyToWear: dress.readyToWear,
-      madeToOrder: dress.madeToOrder,
-      forSale: dress.forSale,
-      forRent: dress.forRent,
-      tags: dress.tags || []
-    };
-    dressFolder.file("meta.json", JSON.stringify(meta, null, 2));
-    
-    // Add cover image
-    if (dress.cover) {
-      if (dress.cover.startsWith('data:')) {
-        // Image is base64 (uploaded in this session)
-        const imageData = dress.cover.split(',')[1];
-        const ext = getImageExt(dress.cover);
-        dressFolder.file(`cover.${ext}`, imageData, { base64: true });
-      } else if (!dress.cover.startsWith('http')) {
-        // Image is a local path (already in catalog)
-        try {
-          const response = await fetch(`${import.meta.env.BASE_URL || ""}${dress.cover}`);
-          const blob = await response.blob();
-          dressFolder.file(dress.cover.split('/').pop(), blob);
-        } catch (err) {
-          console.warn(`Could not fetch image: ${dress.cover}`, err);
-        }
-      }
-    }
-    
-    // Add additional images
-    if (dress.images) {
-      for (let idx = 0; idx < dress.images.length; idx++) {
-        const img = dress.images[idx];
-        if (img.startsWith('data:')) {
-          // Base64 image (uploaded in this session)
-          const imageData = img.split(',')[1];
-          const ext = getImageExt(img);
-          dressFolder.file(`image-${idx}.${ext}`, imageData, { base64: true });
-        } else if (!img.startsWith('http')) {
-          // Local path (already in catalog)
-          try {
-            const response = await fetch(`${import.meta.env.BASE_URL || ""}${img}`);
-            const blob = await response.blob();
-            dressFolder.file(img.split('/').pop(), blob);
-          } catch (err) {
-            console.warn(`Could not fetch image: ${img}`, err);
-          }
-        }
-      }
-    }
-  }
-  
-  // Generate and download ZIP
-  const blob = await zip.generateAsync({ type: "blob" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `MujeresBridal-catalog-${new Date().toISOString().split('T')[0]}.zip`;
-  a.click();
-  URL.revokeObjectURL(url);
-  
-  alert("✅ Catalog exported as ZIP!\n\nTo update GitHub:\n1. Extract the ZIP\n2. Copy 'public/catalog-data.json' to your repo\n3. Copy 'public/catalog/' folders to your repo\n4. Commit and push");
-};
-
-const getImageExt = (dataUrl) => {
-  if (dataUrl.includes('image/jpeg')) return 'jpg';
-  if (dataUrl.includes('image/png')) return 'png';
-  if (dataUrl.includes('image/webp')) return 'webp';
-  if (dataUrl.includes('image/svg')) return 'svg';
-  return 'jpg';
-};
-
-const setupAdminToggle = () => {
-  const btn = document.getElementById("admin-toggle-btn");
-  if (btn) {
-    btn.addEventListener("click", () => {
-      if (adminModule.isLoggedIn) {
-        showAdminPanel();
-      } else {
-        showLoginModal();
-      }
-    });
-  }
-};
-
-// Global functions for delete
-window.deleteDress = (slug) => {
-  if (confirm("Are you sure?")) {
-    adminModule.deleteDress(slug);
-    state.dresses = adminModule.getDresses();
-    renderDressesList();
-    renderCatalog();
-  }
-};
-
-window.editDress = (slug) => {
-  alert("Edit feature coming soon! For now, you can delete and re-add.");
 };
 
 init();
