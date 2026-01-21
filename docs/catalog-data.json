@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-01-21T12:27:29.792Z",
+  "updatedAt": "2026-01-21T14:40:04.416Z",
   "dresses": [
     {
       "slug": "sample-dress",
@@ -11,10 +11,8 @@
       "madeToOrder": true,
       "forSale": true,
       "forRent": false,
-      "images": [
-        "catalog/sample-dress/dress-placeholder.svg"
-      ],
-      "cover": "catalog/sample-dress/dress-placeholder.svg",
+      "images": [],
+      "cover": null,
       "tags": [
         "minimal",
         "satin",
@@ -31,15 +29,30 @@
       "madeToOrder": true,
       "forSale": true,
       "forRent": false,
-      "images": [
-        "catalog/Isabella-Dress/isabella.jpg"
-      ],
-      "cover": "catalog/Isabella-Dress/isabella.jpg",
+      "images": [],
+      "cover": null,
       "tags": [
         "minimal",
         "satin",
         "train"
       ]
+    },
+    {
+      "slug": "sample",
+      "name": "SAMPLE",
+      "description": "",
+      "price": 15000,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": false,
+      "forRent": false,
+      "images": [
+        "catalog/sample/cover.jpg",
+        "catalog/sample/image-0.jpg"
+      ],
+      "cover": "catalog/sample/cover.jpg",
+      "tags": []
     }
   ]
 }

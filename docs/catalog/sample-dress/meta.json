@@ -7,5 +7,9 @@
   "madeToOrder": true,
   "forSale": true,
   "forRent": false,
-  "tags": ["minimal", "satin", "train"]
+  "tags": [
+    "minimal",
+    "satin",
+    "train"
+  ]
 }
