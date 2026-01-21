@@ -1,5 +1,4 @@
 import { ADMIN_PASSWORD } from "./admin-config.js";
-import { githubModule } from "./github-module.js";
 
 const DB_NAME = "MujeresBridalDB";
 const STORE_NAME = "dresses";
@@ -93,18 +92,9 @@ export const adminModule = {
       store.clear();
       this.dresses.forEach((dress) => store.add(dress));
 
-      transaction.onsuccess = async () => {
-        // Trigger GitHub Action workflow to update catalog
-        const payload = {
-          updatedAt: new Date().toISOString(),
-          dresses: this.dresses
-        };
-        const success = await githubModule.saveCatalogToGitHub(payload);
-        if (success) {
-          console.log("📤 Catalog sync triggered. Changes will appear in ~30 seconds.");
-        } else {
-          console.warn("⚠️ Catalog sync failed. Changes saved locally only.");
-        }
+      transaction.onsuccess = () => {
+        // Data saved to IndexedDB only
+        console.log("✅ Changes saved locally. Use Export JSON to update catalog on GitHub.");
         resolve();
       };
       transaction.onerror = () => reject(transaction.error);

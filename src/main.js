@@ -1,6 +1,5 @@
 import "./style.css";
 import { adminModule } from "./admin-module.js";
-import { githubModule } from "./github-module.js";
 
 const app = document.querySelector("#app");
 
@@ -395,7 +394,11 @@ const showAdminPanel = () => {
 
   // Export
   document.getElementById("export-btn").addEventListener("click", () => {
-    const json = adminModule.exportJSON();
+    const data = {
+      updatedAt: new Date().toISOString(),
+      dresses: adminModule.getDresses()
+    };
+    const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -403,6 +406,7 @@ const showAdminPanel = () => {
     a.download = "catalog-data.json";
     a.click();
     URL.revokeObjectURL(url);
+    alert("✅ JSON exported. Now:\n1. Upload this file to public/catalog-data.json\n2. Commit and push to GitHub");
   });
 
   // Logout
