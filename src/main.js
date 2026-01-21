@@ -244,7 +244,9 @@ const renderDetail = () => {
 const loadCatalog = async () => {
   // Load from local catalog-data.json (generated at build time)
   console.log("Loading catalog from local file...");
-  const url = `${import.meta.env.BASE_URL || ""}catalog-data.json`;
+  // Add timestamp to prevent browser caching
+  const timestamp = new Date().getTime();
+  const url = `${import.meta.env.BASE_URL || ""}catalog-data.json?t=${timestamp}`;
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
