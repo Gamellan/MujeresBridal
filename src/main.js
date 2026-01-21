@@ -288,6 +288,7 @@ const init = async () => {
   renderLayout();
   setupFilters();
   await loadCatalog();
+  // Sync admin module dresses with loaded state
   await adminModule.loadDresses(state.dresses);
   setupAdminToggle();
 };
