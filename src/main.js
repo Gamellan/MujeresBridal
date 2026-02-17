@@ -23,6 +23,19 @@ const formatPrice = (price, currency = "PHP") => {
   }
 };
 
+const getShortDescription = (dress) => {
+  if (typeof dress.description === "string") return dress.description;
+  if (dress.description?.short) return dress.description.short;
+  return "Minimal bridal silhouette.";
+};
+
+const getFullDescription = (dress) => {
+  if (typeof dress.description === "string") return dress.description;
+  if (dress.description?.full) return dress.description.full;
+  if (dress.description?.short) return dress.description.short;
+  return "Minimal bridal silhouette.";
+};
+
 const tag = (label, variant = "") => {
   const span = document.createElement("span");
   span.className = `pill ${variant}`.trim();
@@ -129,7 +142,7 @@ const renderCatalog = () => {
 
     const desc = document.createElement("p");
     desc.className = "card__desc";
-    desc.textContent = dress.description || "Minimal bridal silhouette.";
+    desc.textContent = getShortDescription(dress);
 
     const price = document.createElement("p");
     price.className = "card__price";
@@ -202,7 +215,7 @@ const renderDetail = () => {
           
           <div class="detail-info">
             <h1>${dress.name}</h1>
-            <p class="detail-description">${dress.description || "Minimal bridal silhouette."}</p>
+            <div class="detail-description" id="full-description"></div>
             
             <div class="detail-price">${formatPrice(dress.price, dress.currency)}</div>
             
@@ -225,6 +238,12 @@ const renderDetail = () => {
     setupFilters();
     renderCatalog();
   });
+
+  // Render full description with HTML support
+  const fullDescEl = document.getElementById("full-description");
+  if (fullDescEl) {
+    fullDescEl.innerHTML = getFullDescription(dress);
+  }
 
   // Build image list ensuring cover is included and ordered
   const images = Array.isArray(dress.images) ? dress.images.slice() : [];

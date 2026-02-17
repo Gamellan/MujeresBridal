@@ -379,6 +379,39 @@ code {
   gap: 8px;
 }
 
+.detail-description {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.detail-description h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: var(--ink);
+  margin: 16px 0 8px;
+  padding-top: 12px;
+}
+
+.detail-description h2:first-child {
+  margin-top: 0;
+}
+
+.detail-description ul {
+  margin: 8px 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.detail-description li {
+  margin: 6px 0;
+}
+
+.detail-description p {
+  margin: 8px 0;
+}
+
 @media (max-width: 960px) {
   .detail-content {
     grid-template-columns: 1fr;
