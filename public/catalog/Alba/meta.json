@@ -2,13 +2,13 @@
   "name": "ALBA",
   "description": {
     "short": "3-Way Convertible Gown with premium lace and structured satin.",
-    "full": "<h2>Details</h2><ul><li><strong>Style:</strong> 3-Way Convertible Gown</li><li><strong>Fabric:</strong> Premium Lace &amp; Structured Satin</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with detachable lace sleeves.</li><li>Inner lace sheath with a stylish front slit.</li><li>Detachable structured satin overskirt for a grand trail.</li><li>Classic lace-up corset back for an adjustable fit.</li></ul><h2>Availability</h2><ul><li>Open for Rental (Shop display)</li><li>Made to Order</li><li>Made to Rent</li></ul><h2>Note</h2><p>Since the sleeves and the skirt are both removable, you can actually style this in three ways: the full gown, the sheath with sleeves, or the strapless sheath.</p>"
+    "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱12,000</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> 3-Way Convertible Gown</li><li><strong>Fabric:</strong> Premium Lace &amp; Structured Satin</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with detachable lace sleeves.</li><li>Inner lace sheath with a stylish front slit.</li><li>Detachable structured satin overskirt for a grand trail.</li><li>Classic lace-up corset back for an adjustable fit.</li></ul><h2>Note</h2><p>Since the sleeves and the skirt are both removable, you can actually style this in three ways: the full gown, the sheath with sleeves, or the strapless sheath.</p>"
   },
   "price": 12000,
   "currency": "PHP",
-  "readyToWear": false,
+  "readyToWear": true,
   "madeToOrder": true,
-  "forSale": false,
-  "forRent": false,
+  "forSale": true,
+  "forRent": true,
   "tags": []
 }
