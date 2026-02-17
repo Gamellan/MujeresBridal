@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-17T17:34:50.897Z",
+  "updatedAt": "2026-02-17T17:42:15.572Z",
   "dresses": [
     {
       "slug": "Alba",
@@ -10,16 +10,21 @@
       },
       "price": 12000,
       "currency": "PHP",
-      "readyToWear": false,
+      "readyToWear": true,
       "madeToOrder": true,
-      "forSale": false,
-      "forRent": false,
+      "forSale": true,
+      "forRent": true,
       "images": [
         "catalog/Alba/alba1.jpeg",
         "catalog/Alba/alba2.jpeg"
       ],
       "cover": "catalog/Alba/alba1.jpeg",
-      "tags": []
+      "tags": [
+        "convertible",
+        "lace",
+        "satin",
+        "3-way"
+      ]
     },
     {
       "slug": "Beatriz",
