@@ -67,7 +67,6 @@
           
           <div class="detail-info">
             <h1>${e.name}</h1>
-            <div class="detail-description" id="full-description"></div>
             
             <div class="detail-price" id="detail-price-display"></div>
             
@@ -77,6 +76,8 @@
               ${e.forSale?'<span class="pill outline">For sale</span>':""}
               ${e.forRent?'<span class="pill outline">For rent</span>':""}
             </div>
+            
+            <div class="detail-description" id="full-description"></div>
           </div>
         </div>
       </div>

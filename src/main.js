@@ -246,7 +246,6 @@ const renderDetail = () => {
           
           <div class="detail-info">
             <h1>${dress.name}</h1>
-            <div class="detail-description" id="full-description"></div>
             
             <div class="detail-price" id="detail-price-display"></div>
             
@@ -256,6 +255,8 @@ const renderDetail = () => {
               ${dress.forSale ? `<span class="pill outline">For sale</span>` : ""}
               ${dress.forRent ? `<span class="pill outline">For rent</span>` : ""}
             </div>
+            
+            <div class="detail-description" id="full-description"></div>
           </div>
         </div>
       </div>
