@@ -38,7 +38,8 @@ body {
 }
 
 .logo {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   max-height: 300px;
   height: auto;
   object-fit: contain;
