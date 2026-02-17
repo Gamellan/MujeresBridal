@@ -508,3 +508,34 @@ code {
 .nav-btn.prev { left: 10px; }
 .nav-btn.next { right: 10px; }
 
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--ink);
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: var(--accent-strong);
+  transform: scale(1.15);
+}
+
+.facebook-icon {
+  width: 28px;
+  height: 28px;
+}
