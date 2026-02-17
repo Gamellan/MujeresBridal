@@ -39,6 +39,7 @@ body {
 
 .logo {
   width: 100%;
+  max-height: 300px;
   height: auto;
   object-fit: contain;
   display: block;
@@ -472,20 +473,56 @@ code {
 
 @media (max-width: 640px) {
   .logo {
-    max-width: 100%;
+    max-height: none;
   }
 
   .logo-header {
-    padding: 20px 0 16px;
+    padding: 16px 0 12px;
+    min-height: 200px;
   }
 
   .page {
-    padding: 0 16px 56px;
+    padding: 0 12px 48px;
   }
 
-  .filters {
-    flex-direction: column;
-    align-items: flex-start;
+  .hero {
+    gap: 16px;
+  }
+}
+
+/* Extra small phones - max 480px */
+@media (max-width: 480px) {
+  .logo-header {
+    padding: 16px 0 12px;
+    min-height: 280px;
+  }
+
+  .page {
+    padding: 0 12px 48px;
+  }
+
+  .hero {
+    gap: 16px;
+  }
+}
+
+/* Ultra small phones - max 380px */
+@media (max-width: 380px) {
+  .logo-header {
+    padding: 12px 0 8px;
+    min-height: 300px;
+  }
+
+  .page {
+    padding: 0 8px 40px;
+  }
+
+  .hero {
+    gap: 12px;
+  }
+
+  .hero__content .lede {
+    font-size: 14px;
   }
 }
 

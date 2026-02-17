@@ -94,7 +94,13 @@ const renderLayout = () => {
         <div class="hero__card">
           <div class="hero__badge">Catalog</div>
           <p class="hero__metric">Tailored with care</p>
-          <p class="hero__sub">Independent ateliers • Minimal silhouettes • Honest pricing</p>
+          <p class="hero__sub">Tailored in Vietnam. Flown to the Philippines.
+
+Every Mujeres gown is made by independent seamstresses in Vietnam.
+
+To ensure an effortless experience, we offer FREE International Air Cargo on all orders from Vietnam to the Philippines
+
+We’ve removed the distance—and the shipping costs—to bring honest, timeless bridal wear directly to you.</p>
         </div>
       </section>
 
