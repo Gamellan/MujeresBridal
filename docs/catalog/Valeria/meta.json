@@ -1,15 +1,15 @@
 {
   "name": "VALERIA",
   "description": {
-    "short": "3-Way Convertible Gown with premium lace and structured satin.",
-    "full": "<h2>Details</h2><ul><li><strong>Style:</strong> 3-Way Convertible Gown</li><li><strong>Fabric:</strong> Premium Lace &amp; Structured Satin</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with detachable lace sleeves.</li><li>Inner lace sheath with a stylish front slit.</li><li>Detachable structured satin overskirt for a grand trail.</li><li>Classic lace-up corset back for an adjustable fit.</li></ul><h2>Availability</h2><ul><li>Open for Rental (Shop display)</li><li>Made to Order</li><li>Made to Rent</li></ul><h2>Note</h2><p>Since the sleeves and the skirt are both removable, you can actually style this in three ways: the full gown, the sheath with sleeves, or the strapless sheath.</p>"
+    "short": "Multi-way Ballgown with premium textured tulle and shimmer lace.",
+    "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Multi-way Ballgown</li><li><strong>Fabric:</strong> Premium Textured Tulle &amp; Shimmer Lace</li><li><strong>Size:</strong> Onhand Medium to Large Frame</li></ul><h2>Features</h2><ul><li>Sweetheart corset bodice with intricate lace detailing.</li><li>Full, voluminous ballgown skirt with a grand cathedral trail.</li><li>Detachable draped off-shoulder sleeves.</li><li>Detachable matching lace gloves for a high-fashion finish.</li><li>Adjustable lace-up back for a perfect fit.</li></ul><h2>Availability</h2><ul><li>Open for Rental (Shop display)</li></ul>"
   },
   "price": null,
-  "priceMessage": "Message us on Facebook for rental pricing",
+  "priceMessage": "Message us on Facebook for the rental price",
   "currency": "PHP",
   "readyToWear": true,
-  "madeToOrder": true,
-  "forSale": true,
+  "madeToOrder": false,
+  "forSale": false,
   "forRent": true,
   "tags": []
 }

@@ -1,0 +1,15 @@
+{
+  "name": "CLARA",
+  "description": {
+    "short": "Romantic A-line with exquisite all-over floral lace and long sleeves.",
+    "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Romantic A-Line</li><li><strong>Fabric:</strong> Exquisite All-over Floral Lace</li><li><strong>Weight:</strong> Lightweight and comfortable for all-day wear</li><li><strong>Design:</strong> Versatile silhouette that can be worn with or without a petticoat</li><li><strong>Size:</strong> Small to Medium (Onhand)</li></ul><h2>Features</h2><ul><li>Sweetheart corset bodice with built-in cups and delicate eyelash lace trim.</li><li>Intricate floral lace overlay cascading from the bodice down to the scalloped hemline.</li><li>Elegant long lace sleeves for a classic, sophisticated bridal look.</li><li>Adjustable lace-up back to ensure a perfectly cinched and customized fit.</li><li>Graceful floor-length skirt that maintains a beautiful shape with minimal effort.</li></ul><h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,000</li><li>Open for Rental</li><li>Made to Order</li><li>Made to Rent</li></ul>"
+  },
+  "price": 15000,
+  "priceMessage": null,
+  "currency": "PHP",
+  "readyToWear": true,
+  "madeToOrder": true,
+  "forSale": true,
+  "forRent": true,
+  "tags": ["romantic", "aline", "lace", "floral"]
+}

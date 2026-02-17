@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-17T17:07:07.356Z",
+  "updatedAt": "2026-02-17T17:17:50.420Z",
   "dresses": [
     {
       "slug": "Alba",
@@ -22,17 +22,192 @@
       "tags": []
     },
     {
-      "slug": "Valeria",
-      "name": "VALERIA",
+      "slug": "Beatriz",
+      "name": "BEATRIZ",
       "description": {
-        "short": "3-Way Convertible Gown with premium lace and structured satin.",
-        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> 3-Way Convertible Gown</li><li><strong>Fabric:</strong> Premium Lace &amp; Structured Satin</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with detachable lace sleeves.</li><li>Inner lace sheath with a stylish front slit.</li><li>Detachable structured satin overskirt for a grand trail.</li><li>Classic lace-up corset back for an adjustable fit.</li></ul><h2>Availability</h2><ul><li>Open for Rental (Shop display)</li><li>Made to Order</li><li>Made to Rent</li></ul><h2>Note</h2><p>Since the sleeves and the skirt are both removable, you can actually style this in three ways: the full gown, the sheath with sleeves, or the strapless sheath.</p>"
+        "short": "Classic regal ballgown with premium satin and customizable trail length.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Classic Regal Ballgown</li><li><strong>Fabric:</strong> Premium Satin</li><li><strong>Color:</strong> Pure White</li><li><strong>Design:</strong> Timeless and structured silhouette</li><li><strong>Size:</strong> Small to Medium (Onhand) | Custom size available</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with a wrap-around pleated bodice for a sophisticated look.</li><li>Classic puff sleeves that add a touch of vintage-inspired romance.</li><li>Full, voluminous ballgown skirt that flows into a grand, sweeping trail.</li><li>Customizable Trail Length: For Made to Order (MTO) and Made to Rent, the trail length can be changed to suit your preference.</li><li>Clean, polished aesthetic perfect for a traditional cathedral or modern hotel wedding.</li><li>Adjustable back to ensure a flawless fit.</li></ul><h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱16,000</li><li>Open for Rental</li><li>Made to Rent available</li></ul>"
       },
-      "price": null,
+      "price": 16000,
+      "currency": "PHP",
+      "readyToWear": true,
+      "madeToOrder": false,
+      "forSale": true,
+      "forRent": true,
+      "images": [
+        "catalog/Beatriz/beatriz1.jpeg",
+        "catalog/Beatriz/beatriz2.jpeg",
+        "catalog/Beatriz/beatriz3.jpeg"
+      ],
+      "cover": "catalog/Beatriz/beatriz1.jpeg",
+      "tags": [
+        "ballgown",
+        "classic",
+        "vintage",
+        "romantic"
+      ]
+    },
+    {
+      "slug": "Brisa",
+      "name": "BRISA",
+      "description": {
+        "short": "Strapless mermaid gown with premium floral lace and sheer tulle.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Strapless Mermaid / Sheath</li><li><strong>Fabric:</strong> Premium Floral Lace &amp; Sheer Tulle</li><li><strong>Design:</strong> Not two-way</li><li><strong>Size:</strong> XS only</li></ul><h2>Features</h2><ul><li>Boning-defined corset bodice for a structured, snatched silhouette.</li><li>Elegant draped hip detailing that flows into a delicate lace skirt.</li><li>Sheer lace overlay featuring intricate floral patterns.</li><li>Perfect for garden and intimate weddings.</li><li>Includes matching pearl necklace accessory for a timeless look.</li></ul><h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱10,500</li><li>Open for Rental</li><li>Not available for MTO</li></ul>"
+      },
+      "price": 10500,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": false,
+      "forSale": true,
+      "forRent": true,
+      "images": [
+        "catalog/Brisa/brisa1.jpeg",
+        "catalog/Brisa/brisa2.jpeg"
+      ],
+      "cover": "catalog/Brisa/brisa1.jpeg",
+      "tags": [
+        "mermaid",
+        "lace",
+        "intimate"
+      ]
+    },
+    {
+      "slug": "Cielo",
+      "name": "CIELO",
+      "description": {
+        "short": "Ballgown with leaf embroidery and versatile multi-way silhouette.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Ballgown</li><li><strong>Fabric:</strong> Premium Textured Tulle &amp; Intricate Leaf Embroidery</li><li><strong>Design:</strong> Versatile Multi-way silhouette</li><li><strong>Size:</strong> Small to Medium (Onhand)</li></ul><h2>Features</h2><ul><li>Plunging V-neckline with a sheer modesty insert for a modern, romantic touch.</li><li>Exquisite leaf and floral lace appliqués cascading beautifully from the bodice to the skirt.</li><li>Full, voluminous tulle skirt that holds its shape beautifully even without a petticoat.</li><li>Detachable tulle shoulder ribbons for an ethereal, customizable look.</li><li>Adjustable back to ensure a snug and flattering fit.</li></ul><h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,500</li><li>Open for Rental (Shop display)</li><li>Made to Rent available</li></ul>"
+      },
+      "price": 15500,
+      "currency": "PHP",
+      "readyToWear": true,
+      "madeToOrder": false,
+      "forSale": true,
+      "forRent": true,
+      "images": [
+        "catalog/Cielo/cielo1.jpeg",
+        "catalog/Cielo/cielo2.jpeg"
+      ],
+      "cover": "catalog/Cielo/cielo1.jpeg",
+      "tags": [
+        "ballgown",
+        "embroidery",
+        "romantic"
+      ]
+    },
+    {
+      "slug": "Clara",
+      "name": "CLARA",
+      "description": {
+        "short": "Romantic A-line with exquisite all-over floral lace and long sleeves.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Romantic A-Line</li><li><strong>Fabric:</strong> Exquisite All-over Floral Lace</li><li><strong>Weight:</strong> Lightweight and comfortable for all-day wear</li><li><strong>Design:</strong> Versatile silhouette that can be worn with or without a petticoat</li><li><strong>Size:</strong> Small to Medium (Onhand)</li></ul><h2>Features</h2><ul><li>Sweetheart corset bodice with built-in cups and delicate eyelash lace trim.</li><li>Intricate floral lace overlay cascading from the bodice down to the scalloped hemline.</li><li>Elegant long lace sleeves for a classic, sophisticated bridal look.</li><li>Adjustable lace-up back to ensure a perfectly cinched and customized fit.</li><li>Graceful floor-length skirt that maintains a beautiful shape with minimal effort.</li></ul><h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,000</li><li>Open for Rental</li><li>Made to Order</li><li>Made to Rent</li></ul>"
+      },
+      "price": 15000,
       "currency": "PHP",
       "readyToWear": true,
       "madeToOrder": true,
       "forSale": true,
+      "forRent": true,
+      "images": [
+        "catalog/Clara/clara1.jpeg",
+        "catalog/Clara/clara2.jpeg",
+        "catalog/Clara/clara3.jpeg"
+      ],
+      "cover": "catalog/Clara/clara1.jpeg",
+      "tags": [
+        "romantic",
+        "aline",
+        "lace",
+        "floral"
+      ]
+    },
+    {
+      "slug": "Elena",
+      "name": "ELENA",
+      "description": {
+        "short": "Minimalist regal ballgown with premium matte satin and functional pockets.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Minimalist Regal Ballgown</li><li><strong>Fabric:</strong> Premium Matte Satin</li><li><strong>Color:</strong> Sophisticated Ivory</li><li><strong>Design:</strong> Timeless and structured</li><li><strong>Size:</strong> Medium to Large (Onhand)</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with elegant pleated off-shoulder sleeves.</li><li>Structured corset bodice that provides a clean, tailored silhouette.</li><li>Full box-pleated ballgown skirt with a dramatic 1.5m trail.</li><li>Functional side pockets—the perfect modern detail for every bride.</li><li>Adjustable back to accommodate Medium to Large frames comfortably.</li></ul><h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,500</li><li>Open for Rental (Shop display)</li><li>Made to Rent available</li></ul>"
+      },
+      "price": 15500,
+      "currency": "PHP",
+      "readyToWear": true,
+      "madeToOrder": false,
+      "forSale": true,
+      "forRent": true,
+      "images": [
+        "catalog/Elena/elena1.jpeg"
+      ],
+      "cover": "catalog/Elena/elena1.jpeg",
+      "tags": [
+        "ballgown",
+        "minimalist",
+        "modern",
+        "pockets"
+      ]
+    },
+    {
+      "slug": "Georgia",
+      "name": "GEORGIA",
+      "description": {
+        "short": "Minimalist modern ballgown with asymmetric pleated neckline and functional pocket.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Minimalist Modern Ballgown</li><li><strong>Fabric:</strong> Premium Matte Satin</li><li><strong>Color:</strong> Sophisticated Ivory</li><li><strong>Design:</strong> Clean and architectural</li><li><strong>Size:</strong> Custom size</li></ul><h2>Features</h2><ul><li>Unique asymmetric pleated neckline that creates a contemporary, high-fashion look.</li><li>Structured corset bodice for a tailored and secure fit.</li><li>Full, box-pleated ballgown skirt with a smooth, matte finish.</li><li>Functional single pocket—a chic and practical detail for the modern bride.</li><li>Adjustable back to ensure the perfect fit for custom measurements.</li></ul><h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,500</li><li>Onhand: Sold</li><li>Made to Order: Available</li><li>Made to Rent: Available</li></ul>"
+      },
+      "price": 15500,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": true,
+      "forRent": true,
+      "images": [
+        "catalog/Georgia/georgia1.jpeg",
+        "catalog/Georgia/georgia2.jpeg",
+        "catalog/Georgia/georgia3.jpeg"
+      ],
+      "cover": "catalog/Georgia/georgia1.jpeg",
+      "tags": [
+        "ballgown",
+        "minimalist",
+        "modern",
+        "custom"
+      ]
+    },
+    {
+      "slug": "Isabella",
+      "name": "ISABELLA",
+      "description": {
+        "short": "Romantic A-line with French lace and versatile multi-way design.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Romantic A-line</li><li><strong>Fabric:</strong> Delicate All-over French Lace</li><li><strong>Design:</strong> Versatile multi-way look</li><li><strong>Size:</strong> Custom size</li></ul><h2>Features</h2><ul><li>Structured corset bodice with visible boning and a scalloped lace neckline.</li><li>Softly pleated A-line skirt that flows into a graceful floor-length finish.</li><li>Detachable draped off-shoulder sleeves for two distinct bridal looks.</li><li>Intricate lace craftsmanship perfect for vintage-themed or classic ceremonies.</li><li>Headpiece and veil are not included.</li></ul><h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱12,999</li><li>Made to Rent</li></ul>"
+      },
+      "price": 12999,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": false,
+      "forRent": true,
+      "images": [
+        "catalog/Isabella/isabella1.jpeg",
+        "catalog/Isabella/isabella2.jpeg"
+      ],
+      "cover": "catalog/Isabella/isabella1.jpeg",
+      "tags": [
+        "romantic",
+        "aline",
+        "lace",
+        "vintage"
+      ]
+    },
+    {
+      "slug": "Valeria",
+      "name": "VALERIA",
+      "description": {
+        "short": "Multi-way Ballgown with premium textured tulle and shimmer lace.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> Multi-way Ballgown</li><li><strong>Fabric:</strong> Premium Textured Tulle &amp; Shimmer Lace</li><li><strong>Size:</strong> Onhand Medium to Large Frame</li></ul><h2>Features</h2><ul><li>Sweetheart corset bodice with intricate lace detailing.</li><li>Full, voluminous ballgown skirt with a grand cathedral trail.</li><li>Detachable draped off-shoulder sleeves.</li><li>Detachable matching lace gloves for a high-fashion finish.</li><li>Adjustable lace-up back for a perfect fit.</li></ul><h2>Availability</h2><ul><li>Open for Rental (Shop display)</li></ul>"
+      },
+      "price": null,
+      "currency": "PHP",
+      "readyToWear": true,
+      "madeToOrder": false,
+      "forSale": false,
       "forRent": true,
       "images": [
         "catalog/Valeria/valeria1.jpeg",
