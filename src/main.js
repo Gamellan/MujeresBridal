@@ -350,6 +350,14 @@ const renderDetail = () => {
     }
     touchStartX = null;
   });
+
+  // Scroll to gallery after render
+  const gallery = document.querySelector(".detail-gallery");
+  if (gallery) {
+    setTimeout(() => {
+      gallery.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  }
 };
 
 const loadCatalog = async () => {
