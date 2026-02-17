@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-17T17:00:44.920Z",
+  "updatedAt": "2026-02-17T17:07:07.356Z",
   "dresses": [
     {
       "slug": "Alba",
@@ -22,20 +22,23 @@
       "tags": []
     },
     {
-      "slug": "sample",
-      "name": "SAMPLE",
-      "description": "",
-      "price": 15000,
+      "slug": "Valeria",
+      "name": "VALERIA",
+      "description": {
+        "short": "3-Way Convertible Gown with premium lace and structured satin.",
+        "full": "<h2>Details</h2><ul><li><strong>Style:</strong> 3-Way Convertible Gown</li><li><strong>Fabric:</strong> Premium Lace &amp; Structured Satin</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with detachable lace sleeves.</li><li>Inner lace sheath with a stylish front slit.</li><li>Detachable structured satin overskirt for a grand trail.</li><li>Classic lace-up corset back for an adjustable fit.</li></ul><h2>Availability</h2><ul><li>Open for Rental (Shop display)</li><li>Made to Order</li><li>Made to Rent</li></ul><h2>Note</h2><p>Since the sleeves and the skirt are both removable, you can actually style this in three ways: the full gown, the sheath with sleeves, or the strapless sheath.</p>"
+      },
+      "price": null,
       "currency": "PHP",
-      "readyToWear": false,
+      "readyToWear": true,
       "madeToOrder": true,
-      "forSale": false,
-      "forRent": false,
+      "forSale": true,
+      "forRent": true,
       "images": [
-        "catalog/sample/cover.jpg",
-        "catalog/sample/image-0.jpg"
+        "catalog/Valeria/valeria1.jpeg",
+        "catalog/Valeria/valeria2.jpeg"
       ],
-      "cover": "catalog/sample/cover.jpg",
+      "cover": "catalog/Valeria/valeria1.jpeg",
       "tags": []
     }
   ]

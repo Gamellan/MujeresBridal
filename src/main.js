@@ -23,6 +23,23 @@ const formatPrice = (price, currency = "PHP") => {
   }
 };
 
+const getPriceDisplay = (dress) => {
+  // If price is a number, show formatted price
+  if (typeof dress.price === "number") {
+    return {
+      type: "price",
+      value: formatPrice(dress.price, dress.currency)
+    };
+  }
+  
+  // If price is null/undefined, show custom message or default
+  const defaultMessage = "Message us on Facebook for pricing";
+  return {
+    type: "message",
+    value: dress.priceMessage || defaultMessage
+  };
+};
+
 const getShortDescription = (dress) => {
   if (typeof dress.description === "string") return dress.description;
   if (dress.description?.short) return dress.description.short;
@@ -146,7 +163,8 @@ const renderCatalog = () => {
 
     const price = document.createElement("p");
     price.className = "card__price";
-    price.textContent = formatPrice(dress.price, dress.currency);
+    const priceDisplay = getPriceDisplay(dress);
+    price.textContent = priceDisplay.value;
 
     body.appendChild(title);
     body.appendChild(desc);
@@ -217,7 +235,7 @@ const renderDetail = () => {
             <h1>${dress.name}</h1>
             <div class="detail-description" id="full-description"></div>
             
-            <div class="detail-price">${formatPrice(dress.price, dress.currency)}</div>
+            <div class="detail-price" id="detail-price-display"></div>
             
             <div class="detail-badges">
               ${dress.readyToWear ? `<span class="pill soft">Ready to wear</span>` : ""}
@@ -243,6 +261,14 @@ const renderDetail = () => {
   const fullDescEl = document.getElementById("full-description");
   if (fullDescEl) {
     fullDescEl.innerHTML = getFullDescription(dress);
+  }
+
+  // Render price or price message
+  const priceDisplayEl = document.getElementById("detail-price-display");
+  if (priceDisplayEl) {
+    const priceDisplay = getPriceDisplay(dress);
+    priceDisplayEl.textContent = priceDisplay.value;
+    priceDisplayEl.className = priceDisplay.type === "price" ? "detail-price" : "detail-price-message";
   }
 
   // Build image list ensuring cover is included and ordered
