@@ -167,6 +167,17 @@ body {
   box-shadow: 0 6px 16px rgba(31, 27, 22, 0.12);
 }
 
+.filter.all-gowns {
+  font-weight: 700;
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.filter.all-gowns.active {
+  background: var(--accent);
+  color: #fff;
+}
+
 .meta {
   color: var(--muted);
   font-size: 14px;

@@ -100,6 +100,7 @@ const renderLayout = () => {
 
       <section class="filters" aria-label="catalog filters">
         <div class="filter-group">
+          <button class="filter all-gowns" data-filter="all" aria-pressed="true">All gowns</button>
           <button class="filter" data-filter="readyToWear" aria-pressed="false">Ready to wear</button>
           <button class="filter" data-filter="madeToOrder" aria-pressed="false">Made to order</button>
           <button class="filter" data-filter="forSale" aria-pressed="false">For sale</button>
@@ -202,9 +203,39 @@ const setupFilters = () => {
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const key = btn.getAttribute("data-filter");
-      state.filters[key] = !state.filters[key];
-      btn.setAttribute("aria-pressed", String(state.filters[key]));
-      btn.classList.toggle("active", state.filters[key]);
+      
+      // Handle "All gowns" button
+      if (key === "all") {
+        // Reset all filters
+        state.filters = {
+          readyToWear: false,
+          madeToOrder: false,
+          forSale: false,
+          forRent: false
+        };
+        // Update all buttons
+        buttons.forEach((b) => {
+          const bKey = b.getAttribute("data-filter");
+          if (bKey === "all") {
+            b.setAttribute("aria-pressed", "true");
+            b.classList.add("active");
+          } else {
+            b.setAttribute("aria-pressed", "false");
+            b.classList.remove("active");
+          }
+        });
+      } else {
+        // Deactivate all-gowns button when any specific filter is selected
+        const allBtn = document.querySelector(".filter.all-gowns");
+        allBtn.setAttribute("aria-pressed", "false");
+        allBtn.classList.remove("active");
+        
+        // Toggle the specific filter
+        state.filters[key] = !state.filters[key];
+        btn.setAttribute("aria-pressed", String(state.filters[key]));
+        btn.classList.toggle("active", state.filters[key]);
+      }
+      
       renderCatalog();
     });
   });
