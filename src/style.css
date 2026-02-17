@@ -39,7 +39,6 @@ body {
 
 .logo {
   width: 100%;
-  max-height: 750px;
   height: auto;
   object-fit: contain;
   display: block;
@@ -474,7 +473,6 @@ code {
 @media (max-width: 640px) {
   .logo {
     max-width: 100%;
-    max-height: 800px;
   }
 
   .logo-header {
