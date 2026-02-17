@@ -80,14 +80,6 @@ const renderLayout = () => {
       </header>
       
       <section class="hero">
-        <div class="hero__content">
-          <div class="hero__pills">
-            <span class="pill soft">Ready to wear</span>
-            <span class="pill soft">Made to order</span>
-            <span class="pill outline">For sale</span>
-            <span class="pill outline">For rent</span>
-          </div>
-        </div>
         <div class="hero__card">
           <div class="hero__badge">Catalog</div>
           <p class="hero__metric">Tailored with care</p>
