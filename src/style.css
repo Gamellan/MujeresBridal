@@ -127,6 +127,13 @@ body {
   line-height: 1.5;
 }
 
+.hero__desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -493,12 +500,12 @@ code {
 /* Extra small phones - max 480px */
 @media (max-width: 480px) {
   .logo-header {
-    padding: 16px 0 12px;
+    padding: 4px 0 2px;
     min-height: 280px;
   }
 
   .page {
-    padding: 0 12px 48px;
+    padding: 0 2px 4px;
   }
 
   .hero {
@@ -509,12 +516,12 @@ code {
 /* Ultra small phones - max 380px */
 @media (max-width: 380px) {
   .logo-header {
-    padding: 12px 0 8px;
+    padding: 2px 0 1px;
     min-height: 300px;
   }
 
   .page {
-    padding: 0 8px 40px;
+    padding: 0 2px 4px;
   }
 
   .hero {

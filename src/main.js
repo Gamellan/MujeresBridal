@@ -81,9 +81,6 @@ const renderLayout = () => {
       
       <section class="hero">
         <div class="hero__content">
-          <p class="lede">
-            Bridal gowns crafted by independent tailors in Vietnam. Discover ready-to-wear silhouettes and made-to-order pieces with transparent pricing.
-          </p>
           <div class="hero__pills">
             <span class="pill soft">Ready to wear</span>
             <span class="pill soft">Made to order</span>
@@ -94,13 +91,10 @@ const renderLayout = () => {
         <div class="hero__card">
           <div class="hero__badge">Catalog</div>
           <p class="hero__metric">Tailored with care</p>
-          <p class="hero__sub">Tailored in Vietnam. Flown to the Philippines.
-
-Every Mujeres gown is made by independent seamstresses in Vietnam.
-
-To ensure an effortless experience, we offer FREE International Air Cargo on all orders from Vietnam to the Philippines
-
-We’ve removed the distance—and the shipping costs—to bring honest, timeless bridal wear directly to you.</p>
+          <p class="hero__sub"><h3><b>Tailored in Vietnam. Flown to the Philippines.</b></h3></p>
+          <p class="hero__desc">Every Mujeres gown is made by independent seamstresses in Vietnam.</p>
+          <p class="hero__desc">To ensure an effortless experience, we offer FREE International Air Cargo on all orders from Vietnam to the Philippines</p>
+          <p class="hero__desc">We’ve removed the distance—and the shipping costs—to bring honest, timeless bridal wear directly to you.</p>
         </div>
       </section>
 
