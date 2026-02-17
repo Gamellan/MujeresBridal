@@ -41,7 +41,7 @@ body {
 
 .logo {
   width: 100%;
-
+  max-width: 1200px;
   max-height: 300px;
   height: auto;
   object-fit: contain;
@@ -476,6 +476,7 @@ code {
 
 @media (max-width: 640px) {
   .logo {
+    max-width: 100%;
     max-height: 800px;
   }
 
