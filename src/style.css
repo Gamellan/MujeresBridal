@@ -459,6 +459,7 @@ code {
 @media (max-width: 640px) {
   .logo {
     max-width: 100%;
+    max-height: 280px;
   }
 
   .logo-header {
