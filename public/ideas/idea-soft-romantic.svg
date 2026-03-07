@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Soft romantic gown concept">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbf5ef"/>
+      <stop offset="100%" stop-color="#f0e3d5"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg3)"/>
+  <path d="M450 220c70 0 130 58 130 120v160l150 410H170l150-410V340c0-62 60-120 130-120z" fill="#fffaf6" stroke="#d8bea4" stroke-width="8"/>
+  <path d="M320 510c45 25 85 35 130 35s85-10 130-35" fill="none" stroke="#caa886" stroke-width="6"/>
+  <path d="M260 700c65 45 130 65 190 65s125-20 190-65" fill="none" stroke="#caa886" stroke-width="6"/>
+  <path d="M230 820c80 55 150 78 220 78s140-23 220-78" fill="none" stroke="#caa886" stroke-width="6"/>
+  <text x="450" y="95" text-anchor="middle" fill="#7e6752" font-family="Georgia, serif" font-size="40">Mujeres Idea</text>
+  <text x="450" y="145" text-anchor="middle" fill="#9a8169" font-family="Arial, sans-serif" font-size="28">Soft Romantic Concept</text>
+</svg>

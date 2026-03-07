@@ -1,0 +1,43 @@
+{
+  "ideas": [
+    {
+      "slug": "modern-minimal-concept",
+      "name": "Modern Minimal Concept",
+      "description": {
+        "short": "Clean neckline, tailored waist and fluid satin volume for an understated look.",
+        "full": "<h2>Concept</h2><ul><li><strong>Style:</strong> Minimal modern ballgown</li><li><strong>Fabric Direction:</strong> Matte satin with soft internal structure</li><li><strong>Focus:</strong> Sharp silhouette and elegant movement</li></ul><h2>Status</h2><ul><li>Design phase</li><li>Pattern and prototype pending</li></ul>"
+      },
+      "images": [
+        "ideas/idea-modern-minimal.svg"
+      ],
+      "cover": "ideas/idea-modern-minimal.svg",
+      "tags": ["minimal", "modern", "structured"]
+    },
+    {
+      "slug": "embroidered-royal-concept",
+      "name": "Embroidered Royal Concept",
+      "description": {
+        "short": "A dramatic volume concept with ornate embroidery placement and cathedral presence.",
+        "full": "<h2>Concept</h2><ul><li><strong>Style:</strong> Regal embroidered ballgown</li><li><strong>Fabric Direction:</strong> Layered tulle with metallic thread accents</li><li><strong>Focus:</strong> Royal silhouette with high-impact texture</li></ul><h2>Status</h2><ul><li>Design board approved</li><li>Material sourcing in progress</li></ul>"
+      },
+      "images": [
+        "ideas/idea-embroidered-royal.svg"
+      ],
+      "cover": "ideas/idea-embroidered-royal.svg",
+      "tags": ["royal", "embroidery", "dramatic"]
+    },
+    {
+      "slug": "soft-romantic-concept",
+      "name": "Soft Romantic Concept",
+      "description": {
+        "short": "Romantic draping and airy layers designed for a soft, poetic bridal profile.",
+        "full": "<h2>Concept</h2><ul><li><strong>Style:</strong> Romantic layered A-line</li><li><strong>Fabric Direction:</strong> Light tulle and lace blend</li><li><strong>Focus:</strong> Gentle volume and soft movement</li></ul><h2>Status</h2><ul><li>Sketch and drape study complete</li><li>Prototype not yet produced</li></ul>"
+      },
+      "images": [
+        "ideas/idea-soft-romantic.svg"
+      ],
+      "cover": "ideas/idea-soft-romantic.svg",
+      "tags": ["romantic", "light", "soft"]
+    }
+  ]
+}

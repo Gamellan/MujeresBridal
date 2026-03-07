@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Embroidered royal gown concept">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5efe8"/>
+      <stop offset="100%" stop-color="#eadbca"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg2)"/>
+  <circle cx="450" cy="280" r="105" fill="#fff8f1" stroke="#d7bda2" stroke-width="8"/>
+  <path d="M245 510c0-150 95-235 205-235s205 85 205 235v360H245V510z" fill="#fffdf9" stroke="#d9c2a8" stroke-width="8"/>
+  <path d="M300 620c120-70 180-70 300 0" fill="none" stroke="#c59a6d" stroke-width="6"/>
+  <path d="M300 720c120-70 180-70 300 0" fill="none" stroke="#c59a6d" stroke-width="6"/>
+  <path d="M300 820c120-70 180-70 300 0" fill="none" stroke="#c59a6d" stroke-width="6"/>
+  <text x="450" y="95" text-anchor="middle" fill="#7e6752" font-family="Georgia, serif" font-size="40">Mujeres Idea</text>
+  <text x="450" y="145" text-anchor="middle" fill="#9a8169" font-family="Arial, sans-serif" font-size="28">Embroidered Royal Concept</text>
+</svg>
