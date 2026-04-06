@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-17T17:42:15.572Z",
+  "updatedAt": "2026-04-06T14:32:14.742Z",
   "dresses": [
     {
       "slug": "Alba",
@@ -24,6 +24,31 @@
         "lace",
         "satin",
         "3-way"
+      ]
+    },
+    {
+      "slug": "Alyanna",
+      "name": "ALYANNA",
+      "description": {
+        "short": "Strapless A-line gown with premium laser-cut rose lace and bold floral texture.",
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱20,000</li><li>Size: Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Strapless A-Line Gown</li><li><strong>Fabric:</strong> Premium Laser-Cut Rose Lace</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Bold floral texture with a classic silhouette</li></ul><h2>Features</h2><ul><li>Rose Lace Overlay: Features a unique, all-over rose pattern for a romantic look.</li><li>Strapless Straight Neckline: A clean, elegant top that highlights the shoulders.</li><li>Structured Bodice: Provides a secure fit that flows seamlessly into the skirt.</li><li>Classic A-Line Skirt: A graceful, flared skirt that offers effortless movement.</li><li>Scalloped Hemline: Finished with beautiful rose-cut lace edges along the trail.</li><li>Customizable Trail: Trail length can be modified for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a perfect and comfortable fit.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Available as an add-on; price varies depending on length and design.</li></ul>"
+      },
+      "price": 20000,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": true,
+      "forRent": false,
+      "images": [
+        "catalog/Alyanna/Alyanna-1.jpeg",
+        "catalog/Alyanna/Alyanna-2.jpeg"
+      ],
+      "cover": "catalog/Alyanna/Alyanna-1.jpeg",
+      "tags": [
+        "aline",
+        "strapless",
+        "rose-lace",
+        "romantic"
       ]
     },
     {
@@ -202,24 +227,53 @@
       ]
     },
     {
-      "slug": "Valeria",
-      "name": "VALERIA",
+      "slug": "Karen",
+      "name": "KAREN",
       "description": {
-        "short": "Multi-way Ballgown with premium textured tulle and shimmer lace.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Open for Rental (Shop display)</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Multi-way Ballgown</li><li><strong>Fabric:</strong> Premium Textured Tulle &amp; Shimmer Lace</li><li><strong>Size:</strong> Onhand Medium to Large Frame</li></ul><h2>Features</h2><ul><li>Sweetheart corset bodice with intricate lace detailing.</li><li>Full, voluminous ballgown skirt with a grand cathedral trail.</li><li>Detachable draped off-shoulder sleeves.</li><li>Detachable matching lace gloves for a high-fashion finish.</li><li>Adjustable lace-up back for a perfect fit.</li></ul>"
+        "short": "Modern corset A-line gown with beaded lace, sequins, and detachable train.",
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱25,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Modern Corset A-Line with Detachable Train</li><li><strong>Fabric:</strong> Premium Beaded Lace &amp; Glistening Sequins</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> High-glamour structure with a versatile silhouette</li></ul><h2>Features</h2><ul><li>Structured Corset Bodice: Features prominent exposed boning and a sweetheart neckline for a dramatic, snatched fit.</li><li>Glistening Lace Detail: Adorned with intricate floral lace and shimmering sequins for a radiant, high-fashion look.</li><li>Elegant Long Sleeves: Fitted off-the-shoulder lace sleeves that add a touch of sophisticated romance.</li><li>A-Line Silhouette: A graceful, flared skirt that offers a classic and flattering shape.</li><li>Detachable Train: Comes with a matching voluminous lace train that can be removed for more ease of movement.</li><li>Adjustable Back: Ensures a precise and comfortable fit to enhance the sculpted bodice.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Available as an add-on; price varies depending on length and design.</li></ul>"
       },
-      "price": null,
+      "price": 25000,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": true,
+      "forRent": false,
+      "images": [
+        "catalog/Karen/Karen-1.jpeg",
+        "catalog/Karen/Karen-2.jpeg"
+      ],
+      "cover": "catalog/Karen/Karen-1.jpeg",
+      "tags": [
+        "aline",
+        "corset",
+        "beaded",
+        "detachable-train"
+      ]
+    },
+    {
+      "slug": "Luna",
+      "name": "LUNA",
+      "description": {
+        "short": "Modern corset mermaid gown with premium floral lace, tulle, and dramatic over-skirt.",
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱22,000</li><li>Size: Small to Medium (Onhand) | Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Modern Corset Mermaid with Over-skirt</li><li><strong>Fabric:</strong> Premium Floral Lace &amp; Tulle</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Intricate lace with a structured silhouette</li></ul><h2>Features</h2><ul><li>Structured Corset Bodice: Features visible boning for a snatched, modern fit.</li><li>Elegant Lace Sleeves: Long, off-the-shoulder sleeves covered in delicate floral lace.</li><li>Layered Silhouette: A fitted mermaid base paired with a voluminous lace over-skirt for extra drama.</li><li>Intricate Lace Details: Full-body floral appliques that flow from the bodice down to the trail.</li><li>Grand Lace Trail: A sweeping, lace-trimmed train perfect for a grand entrance.</li><li>Customizable Trail: Trail length can be adjusted for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a flawless and comfortable fit for all sizes.</li></ul>"
+      },
+      "price": 22000,
       "currency": "PHP",
       "readyToWear": true,
-      "madeToOrder": false,
-      "forSale": false,
-      "forRent": true,
+      "madeToOrder": true,
+      "forSale": true,
+      "forRent": false,
       "images": [
-        "catalog/Valeria/valeria1.jpeg",
-        "catalog/Valeria/valeria2.jpeg"
+        "catalog/Luna/Luna-1.jpeg"
       ],
-      "cover": "catalog/Valeria/valeria1.jpeg",
-      "tags": []
+      "cover": "catalog/Luna/Luna-1.jpeg",
+      "tags": [
+        "mermaid",
+        "corset",
+        "lace",
+        "dramatic"
+      ]
     }
   ]
 }

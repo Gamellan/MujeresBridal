@@ -1,0 +1,15 @@
+{
+  "name": "LUNA",
+  "description": {
+    "short": "Modern corset mermaid gown with premium floral lace, tulle, and dramatic over-skirt.",
+    "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱22,000</li><li>Size: Small to Medium (Onhand) | Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Modern Corset Mermaid with Over-skirt</li><li><strong>Fabric:</strong> Premium Floral Lace &amp; Tulle</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Intricate lace with a structured silhouette</li></ul><h2>Features</h2><ul><li>Structured Corset Bodice: Features visible boning for a snatched, modern fit.</li><li>Elegant Lace Sleeves: Long, off-the-shoulder sleeves covered in delicate floral lace.</li><li>Layered Silhouette: A fitted mermaid base paired with a voluminous lace over-skirt for extra drama.</li><li>Intricate Lace Details: Full-body floral appliques that flow from the bodice down to the trail.</li><li>Grand Lace Trail: A sweeping, lace-trimmed train perfect for a grand entrance.</li><li>Customizable Trail: Trail length can be adjusted for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a flawless and comfortable fit for all sizes.</li></ul>"
+  },
+  "price": 22000,
+  "priceMessage": "Message us on Facebook for inquiries on custom measurements or to start your order!",
+  "currency": "PHP",
+  "readyToWear": true,
+  "madeToOrder": true,
+  "forSale": true,
+  "forRent": false,
+  "tags": ["mermaid", "corset", "lace", "dramatic"]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "KAREN",
+  "description": {
+    "short": "Modern corset A-line gown with beaded lace, sequins, and detachable train.",
+    "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱25,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Modern Corset A-Line with Detachable Train</li><li><strong>Fabric:</strong> Premium Beaded Lace &amp; Glistening Sequins</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> High-glamour structure with a versatile silhouette</li></ul><h2>Features</h2><ul><li>Structured Corset Bodice: Features prominent exposed boning and a sweetheart neckline for a dramatic, snatched fit.</li><li>Glistening Lace Detail: Adorned with intricate floral lace and shimmering sequins for a radiant, high-fashion look.</li><li>Elegant Long Sleeves: Fitted off-the-shoulder lace sleeves that add a touch of sophisticated romance.</li><li>A-Line Silhouette: A graceful, flared skirt that offers a classic and flattering shape.</li><li>Detachable Train: Comes with a matching voluminous lace train that can be removed for more ease of movement.</li><li>Adjustable Back: Ensures a precise and comfortable fit to enhance the sculpted bodice.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Available as an add-on; price varies depending on length and design.</li></ul>"
+  },
+  "price": 25000,
+  "priceMessage": "Message us on Facebook for inquiries on custom measurements or to start your order!",
+  "currency": "PHP",
+  "readyToWear": false,
+  "madeToOrder": true,
+  "forSale": true,
+  "forRent": false,
+  "tags": ["aline", "corset", "beaded", "detachable-train"]
+}
