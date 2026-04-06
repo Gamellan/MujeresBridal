@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-06T14:32:14.742Z",
+  "updatedAt": "2026-04-06T14:48:14.444Z",
   "dresses": [
     {
       "slug": "Alba",
@@ -82,12 +82,12 @@
       "name": "BRISA",
       "description": {
         "short": "Strapless mermaid gown with premium floral lace and sheer tulle.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱10,500</li><li>Open for Rental</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Strapless Mermaid / Sheath</li><li><strong>Fabric:</strong> Premium Floral Lace &amp; Sheer Tulle</li><li><strong>Design:</strong> Not two-way</li><li><strong>Size:</strong> XS only</li></ul><h2>Features</h2><ul><li>Boning-defined corset bodice for a structured, snatched silhouette.</li><li>Elegant draped hip detailing that flows into a delicate lace skirt.</li><li>Sheer lace overlay featuring intricate floral patterns.</li><li>Perfect for garden and intimate weddings.</li><li>Includes matching pearl necklace accessory for a timeless look.</li></ul>"
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱15,500</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Strapless Mermaid / Sheath</li><li><strong>Fabric:</strong> Premium Floral Lace &amp; Sheer Tulle</li><li><strong>Design:</strong> Not two-way</li><li><strong>Size:</strong> XS only</li></ul><h2>Features</h2><ul><li>Boning-defined corset bodice for a structured, snatched silhouette.</li><li>Elegant draped hip detailing that flows into a delicate lace skirt.</li><li>Sheer lace overlay featuring intricate floral patterns.</li><li>Perfect for garden and intimate weddings.</li><li>Includes matching pearl necklace accessory for a timeless look.</li></ul>"
       },
-      "price": 10500,
+      "price": 15500,
       "currency": "PHP",
       "readyToWear": false,
-      "madeToOrder": false,
+      "madeToOrder": true,
       "forSale": true,
       "forRent": true,
       "images": [
