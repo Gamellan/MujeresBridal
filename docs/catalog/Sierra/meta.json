@@ -9,7 +9,13 @@
   "currency": "PHP",
   "readyToWear": false,
   "madeToOrder": true,
-  "forSale": true,
+  "forSale": false,
   "forRent": false,
-  "tags": ["mermaid", "aline", "strapless", "organza", "convertible"]
+  "tags": [
+    "mermaid",
+    "aline",
+    "strapless",
+    "organza",
+    "convertible"
+  ]
 }

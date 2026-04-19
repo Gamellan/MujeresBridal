@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-04-19T15:55:59.783Z",
+  "updatedAt": "2026-04-19T16:04:44.663Z",
   "dresses": [
     {
       "slug": "Alba",
       "name": "ALBA",
       "description": {
         "short": "3-Way Convertible Gown with premium lace and structured satin.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱12,000</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> 3-Way Convertible Gown</li><li><strong>Fabric:</strong> Premium Lace &amp; Structured Satin</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with detachable lace sleeves.</li><li>Inner lace sheath with a stylish front slit.</li><li>Detachable structured satin overskirt for a grand trail.</li><li>Classic lace-up corset back for an adjustable fit.</li></ul><h2>Note</h2><p>Since the sleeves and the skirt are both removable, you can actually style this in three ways: the full gown, the sheath with sleeves, or the strapless sheath.</p>"
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱22,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> 3-Way Convertible Gown</li><li><strong>Fabric:</strong> Premium Lace &amp; Structured Satin</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with detachable lace sleeves.</li><li>Inner lace sheath with a stylish front slit.</li><li>Detachable structured satin overskirt for a grand trail.</li><li>Classic lace-up corset back for an adjustable fit.</li></ul><h2>Note</h2><p>Since the sleeves and the skirt are both removable, you can actually style this in three ways: the full gown, the sheath with sleeves, or the strapless sheath.</p>"
       },
-      "price": 12000,
+      "price": 22000,
       "currency": "PHP",
-      "readyToWear": true,
+      "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
-      "forRent": true,
+      "forSale": false,
+      "forRent": false,
       "images": [
         "catalog/Alba/alba1.jpeg",
         "catalog/Alba/alba2.jpeg"
@@ -31,13 +31,13 @@
       "name": "ALYANNA",
       "description": {
         "short": "Strapless A-line gown with premium laser-cut rose lace and bold floral texture.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱20,000</li><li>Size: Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Strapless A-Line Gown</li><li><strong>Fabric:</strong> Premium Laser-Cut Rose Lace</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Bold floral texture with a classic silhouette</li></ul><h2>Features</h2><ul><li>Rose Lace Overlay: Features a unique, all-over rose pattern for a romantic look.</li><li>Strapless Straight Neckline: A clean, elegant top that highlights the shoulders.</li><li>Structured Bodice: Provides a secure fit that flows seamlessly into the skirt.</li><li>Classic A-Line Skirt: A graceful, flared skirt that offers effortless movement.</li><li>Scalloped Hemline: Finished with beautiful rose-cut lace edges along the trail.</li><li>Customizable Trail: Trail length can be modified for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a perfect and comfortable fit.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Available as an add-on; price varies depending on length and design.</li></ul>"
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱20,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Strapless A-Line Gown</li><li><strong>Fabric:</strong> Premium Laser-Cut Rose Lace</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Bold floral texture with a classic silhouette</li></ul><h2>Features</h2><ul><li>Rose Lace Overlay: Features a unique, all-over rose pattern for a romantic look.</li><li>Strapless Straight Neckline: A clean, elegant top that highlights the shoulders.</li><li>Structured Bodice: Provides a secure fit that flows seamlessly into the skirt.</li><li>Classic A-Line Skirt: A graceful, flared skirt that offers effortless movement.</li><li>Scalloped Hemline: Finished with beautiful rose-cut lace edges along the trail.</li><li>Customizable Trail: Trail length can be modified for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a perfect and comfortable fit.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Available as an add-on; price varies depending on length and design.</li></ul>"
       },
       "price": 20000,
       "currency": "PHP",
       "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
+      "forSale": false,
       "forRent": false,
       "images": [
         "catalog/Alyanna/Alyanna-1.jpeg",
@@ -62,7 +62,7 @@
       "currency": "PHP",
       "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
+      "forSale": false,
       "forRent": false,
       "images": [
         "catalog/Aria/aria-1.jpeg",
@@ -80,15 +80,15 @@
       "slug": "Beatriz",
       "name": "BEATRIZ",
       "description": {
-        "short": "Classic regal ballgown with premium satin and customizable trail length.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱16,000</li><li>Open for Rental</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Classic Regal Ballgown</li><li><strong>Fabric:</strong> Premium Satin</li><li><strong>Color:</strong> Pure White</li><li><strong>Design:</strong> Timeless and structured silhouette</li><li><strong>Size:</strong> Small to Medium (Onhand) | Custom size available</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with a wrap-around pleated bodice for a sophisticated look.</li><li>Classic puff sleeves that add a touch of vintage-inspired romance.</li><li>Full, voluminous ballgown skirt that flows into a grand, sweeping trail.</li><li>Customizable Trail Length: For Made to Order (MTO) and Made to Rent, the trail length can be changed to suit your preference.</li><li>Clean, polished aesthetic perfect for a traditional cathedral or modern hotel wedding.</li><li>Adjustable back to ensure a flawless fit.</li></ul>"
+        "short": "Classic regal ballgown with tafetta and customizable trail length.",
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱21,500</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Classic Regal Ballgown</li><li><strong>Fabric:</strong> Tafetta</li><li><strong>Color:</strong> Pure White</li><li><strong>Design:</strong> Timeless and structured silhouette</li><li><strong>Size:</strong> Small to Medium (Onhand) | Custom size available</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with a wrap-around pleated bodice for a sophisticated look.</li><li>Classic puff sleeves that add a touch of vintage-inspired romance.</li><li>Full, voluminous ballgown skirt that flows into a grand, sweeping trail.</li><li>Customizable Trail Length: For Made to Order (MTO), the trail length can be changed to suit your preference.</li><li>Clean, polished aesthetic perfect for a traditional cathedral or modern hotel wedding.</li><li>Adjustable back to ensure a flawless fit.</li></ul>"
       },
-      "price": 16000,
+      "price": 21500,
       "currency": "PHP",
-      "readyToWear": true,
-      "madeToOrder": false,
-      "forSale": true,
-      "forRent": true,
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": false,
+      "forRent": false,
       "images": [
         "catalog/Beatriz/beatriz1.jpeg",
         "catalog/Beatriz/beatriz2.jpeg",
@@ -103,42 +103,18 @@
       ]
     },
     {
-      "slug": "Brisa",
-      "name": "BRISA",
+      "slug": "Cielo",
+      "name": "CIELO",
       "description": {
-        "short": "Strapless mermaid gown with premium floral lace and sheer tulle.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱15,500</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Strapless Mermaid / Sheath</li><li><strong>Fabric:</strong> Premium Floral Lace &amp; Sheer Tulle</li><li><strong>Design:</strong> Not two-way</li><li><strong>Size:</strong> XS only</li></ul><h2>Features</h2><ul><li>Boning-defined corset bodice for a structured, snatched silhouette.</li><li>Elegant draped hip detailing that flows into a delicate lace skirt.</li><li>Sheer lace overlay featuring intricate floral patterns.</li><li>Perfect for garden and intimate weddings.</li><li>Includes matching pearl necklace accessory for a timeless look.</li></ul>"
+        "short": "Ballgown with leaf embroidery and versatile multi-way silhouette.",
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱15,500</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Ballgown</li><li><strong>Fabric:</strong> Premium Textured Tulle &amp; Intricate Leaf Embroidery</li><li><strong>Design:</strong> Versatile Multi-way silhouette</li><li><strong>Size:</strong> Small to Medium (Onhand)</li></ul><h2>Features</h2><ul><li>Plunging V-neckline with a sheer modesty insert for a modern, romantic touch.</li><li>Exquisite leaf and floral lace appliqués cascading beautifully from the bodice to the skirt.</li><li>Full, voluminous tulle skirt that holds its shape beautifully even without a petticoat.</li><li>Detachable tulle shoulder ribbons for an ethereal, customizable look.</li><li>Adjustable back to ensure a snug and flattering fit.</li></ul>"
       },
       "price": 15500,
       "currency": "PHP",
       "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
-      "forRent": true,
-      "images": [
-        "catalog/Brisa/brisa1.jpeg",
-        "catalog/Brisa/brisa2.jpeg"
-      ],
-      "cover": "catalog/Brisa/brisa1.jpeg",
-      "tags": [
-        "mermaid",
-        "lace",
-        "intimate"
-      ]
-    },
-    {
-      "slug": "Cielo",
-      "name": "CIELO",
-      "description": {
-        "short": "Ballgown with leaf embroidery and versatile multi-way silhouette.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,500</li><li>Open for Rental (Shop display)</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Ballgown</li><li><strong>Fabric:</strong> Premium Textured Tulle &amp; Intricate Leaf Embroidery</li><li><strong>Design:</strong> Versatile Multi-way silhouette</li><li><strong>Size:</strong> Small to Medium (Onhand)</li></ul><h2>Features</h2><ul><li>Plunging V-neckline with a sheer modesty insert for a modern, romantic touch.</li><li>Exquisite leaf and floral lace appliqués cascading beautifully from the bodice to the skirt.</li><li>Full, voluminous tulle skirt that holds its shape beautifully even without a petticoat.</li><li>Detachable tulle shoulder ribbons for an ethereal, customizable look.</li><li>Adjustable back to ensure a snug and flattering fit.</li></ul>"
-      },
-      "price": 15500,
-      "currency": "PHP",
-      "readyToWear": true,
-      "madeToOrder": false,
-      "forSale": true,
-      "forRent": true,
+      "forSale": false,
+      "forRent": false,
       "images": [
         "catalog/Cielo/cielo1.jpeg",
         "catalog/Cielo/cielo2.jpeg"
@@ -155,14 +131,14 @@
       "name": "CLARA",
       "description": {
         "short": "Romantic A-line with exquisite all-over floral lace and long sleeves.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,000</li><li>Open for Rental</li><li>Made to Order available</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Romantic A-Line</li><li><strong>Fabric:</strong> Exquisite All-over Floral Lace</li><li><strong>Weight:</strong> Lightweight and comfortable for all-day wear</li><li><strong>Design:</strong> Versatile silhouette that can be worn with or without a petticoat</li><li><strong>Size:</strong> Small to Medium (Onhand)</li></ul><h2>Features</h2><ul><li>Sweetheart corset bodice with built-in cups and delicate eyelash lace trim.</li><li>Intricate floral lace overlay cascading from the bodice down to the scalloped hemline.</li><li>Elegant long lace sleeves for a classic, sophisticated bridal look.</li><li>Adjustable lace-up back to ensure a perfectly cinched and customized fit.</li><li>Graceful floor-length skirt that maintains a beautiful shape with minimal effort.</li></ul>"
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱15,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Romantic A-Line</li><li><strong>Fabric:</strong> Exquisite All-over Floral Lace</li><li><strong>Weight:</strong> Lightweight and comfortable for all-day wear</li><li><strong>Design:</strong> Versatile silhouette that can be worn with or without a petticoat</li><li><strong>Size:</strong> Small to Medium (Onhand)</li></ul><h2>Features</h2><ul><li>Sweetheart corset bodice with built-in cups and delicate eyelash lace trim.</li><li>Intricate floral lace overlay cascading from the bodice down to the scalloped hemline.</li><li>Elegant long lace sleeves for a classic, sophisticated bridal look.</li><li>Adjustable lace-up back to ensure a perfectly cinched and customized fit.</li><li>Graceful floor-length skirt that maintains a beautiful shape with minimal effort.</li></ul>"
       },
       "price": 15000,
       "currency": "PHP",
-      "readyToWear": true,
+      "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
-      "forRent": true,
+      "forSale": false,
+      "forRent": false,
       "images": [
         "catalog/Clara/clara1.jpeg",
         "catalog/Clara/clara2.jpeg",
@@ -181,14 +157,14 @@
       "name": "ELENA",
       "description": {
         "short": "Minimalist regal ballgown with premium matte satin and functional pockets.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,500</li><li>Open for Rental (Shop display)</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Minimalist Regal Ballgown</li><li><strong>Fabric:</strong> Premium Matte Satin</li><li><strong>Color:</strong> Sophisticated Ivory</li><li><strong>Design:</strong> Timeless and structured</li><li><strong>Size:</strong> Medium to Large (Onhand)</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with elegant pleated off-shoulder sleeves.</li><li>Structured corset bodice that provides a clean, tailored silhouette.</li><li>Full box-pleated ballgown skirt with a dramatic 1.5m trail.</li><li>Functional side pockets—the perfect modern detail for every bride.</li><li>Adjustable back to accommodate Medium to Large frames comfortably.</li></ul>"
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱15,500</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Minimalist Regal Ballgown</li><li><strong>Fabric:</strong> Premium Matte Satin</li><li><strong>Color:</strong> Sophisticated Ivory</li><li><strong>Design:</strong> Timeless and structured</li><li><strong>Size:</strong> Medium to Large (Onhand)</li></ul><h2>Features</h2><ul><li>Sweetheart neckline with elegant pleated off-shoulder sleeves.</li><li>Structured corset bodice that provides a clean, tailored silhouette.</li><li>Full box-pleated ballgown skirt with a dramatic 1.5m trail.</li><li>Functional side pockets—the perfect modern detail for every bride.</li><li>Adjustable back to accommodate Medium to Large frames comfortably.</li></ul>"
       },
       "price": 15500,
       "currency": "PHP",
-      "readyToWear": true,
-      "madeToOrder": false,
-      "forSale": true,
-      "forRent": true,
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": false,
+      "forRent": false,
       "images": [
         "catalog/Elena/elena1.jpeg"
       ],
@@ -205,14 +181,14 @@
       "name": "GEORGIA",
       "description": {
         "short": "Minimalist modern ballgown with asymmetric pleated neckline and functional pocket.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>For Sale: ₱15,500</li><li>Made to Order available</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Minimalist Modern Ballgown</li><li><strong>Fabric:</strong> Premium Matte Satin</li><li><strong>Color:</strong> Sophisticated Ivory</li><li><strong>Design:</strong> Clean and architectural</li><li><strong>Size:</strong> Custom size</li></ul><h2>Features</h2><ul><li>Unique asymmetric pleated neckline that creates a contemporary, high-fashion look.</li><li>Structured corset bodice for a tailored and secure fit.</li><li>Full, box-pleated ballgown skirt with a smooth, matte finish.</li><li>Functional single pocket—a chic and practical detail for the modern bride.</li><li>Adjustable back to ensure the perfect fit for custom measurements.</li></ul>"
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱15,500</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Minimalist Modern Ballgown</li><li><strong>Fabric:</strong> Premium Matte Satin</li><li><strong>Color:</strong> Sophisticated Ivory</li><li><strong>Design:</strong> Clean and architectural</li><li><strong>Size:</strong> Custom size</li></ul><h2>Features</h2><ul><li>Unique asymmetric pleated neckline that creates a contemporary, high-fashion look.</li><li>Structured corset bodice for a tailored and secure fit.</li><li>Full, box-pleated ballgown skirt with a smooth, matte finish.</li><li>Functional single pocket—a chic and practical detail for the modern bride.</li><li>Adjustable back to ensure the perfect fit for custom measurements.</li></ul>"
       },
       "price": 15500,
       "currency": "PHP",
       "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
-      "forRent": true,
+      "forSale": false,
+      "forRent": false,
       "images": [
         "catalog/Georgia/georgia1.jpeg",
         "catalog/Georgia/georgia2.jpeg",
@@ -231,14 +207,14 @@
       "name": "ISABELLA",
       "description": {
         "short": "Romantic A-line with French lace and versatile multi-way design.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱12,999</li><li>Made to Rent available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Romantic A-line</li><li><strong>Fabric:</strong> Delicate All-over French Lace</li><li><strong>Design:</strong> Versatile multi-way look</li><li><strong>Size:</strong> Custom size</li></ul><h2>Features</h2><ul><li>Structured corset bodice with visible boning and a scalloped lace neckline.</li><li>Softly pleated A-line skirt that flows into a graceful floor-length finish.</li><li>Detachable draped off-shoulder sleeves for two distinct bridal looks.</li><li>Intricate lace craftsmanship perfect for vintage-themed or classic ceremonies.</li><li>Headpiece and veil are not included.</li></ul>"
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱12,999</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Romantic A-line</li><li><strong>Fabric:</strong> Delicate All-over French Lace</li><li><strong>Design:</strong> Versatile multi-way look</li><li><strong>Size:</strong> Custom size</li></ul><h2>Features</h2><ul><li>Structured corset bodice with visible boning and a scalloped lace neckline.</li><li>Softly pleated A-line skirt that flows into a graceful floor-length finish.</li><li>Detachable draped off-shoulder sleeves for two distinct bridal looks.</li><li>Intricate lace craftsmanship perfect for vintage-themed or classic ceremonies.</li><li>Headpiece and veil are not included.</li></ul>"
       },
       "price": 12999,
       "currency": "PHP",
       "readyToWear": false,
       "madeToOrder": true,
       "forSale": false,
-      "forRent": true,
+      "forRent": false,
       "images": [
         "catalog/Isabella/isabella1.jpeg",
         "catalog/Isabella/isabella2.jpeg"
@@ -262,7 +238,7 @@
       "currency": "PHP",
       "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
+      "forSale": false,
       "forRent": false,
       "images": [
         "catalog/Karen/Karen-1.jpeg",
@@ -281,13 +257,13 @@
       "name": "LUNA",
       "description": {
         "short": "Modern corset mermaid gown with premium floral lace, tulle, and dramatic over-skirt.",
-        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱22,000</li><li>Size: Small to Medium (Onhand) | Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Modern Corset Mermaid with Over-skirt</li><li><strong>Fabric:</strong> Premium Floral Lace &amp; Tulle</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Intricate lace with a structured silhouette</li></ul><h2>Features</h2><ul><li>Structured Corset Bodice: Features visible boning for a snatched, modern fit.</li><li>Elegant Lace Sleeves: Long, off-the-shoulder sleeves covered in delicate floral lace.</li><li>Layered Silhouette: A fitted mermaid base paired with a voluminous lace over-skirt for extra drama.</li><li>Intricate Lace Details: Full-body floral appliques that flow from the bodice down to the trail.</li><li>Grand Lace Trail: A sweeping, lace-trimmed train perfect for a grand entrance.</li><li>Customizable Trail: Trail length can be adjusted for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a flawless and comfortable fit for all sizes.</li></ul>"
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱22,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Modern Corset Mermaid with Over-skirt</li><li><strong>Fabric:</strong> Premium Floral Lace &amp; Tulle</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Intricate lace with a structured silhouette</li></ul><h2>Features</h2><ul><li>Structured Corset Bodice: Features visible boning for a snatched, modern fit.</li><li>Elegant Lace Sleeves: Long, off-the-shoulder sleeves covered in delicate floral lace.</li><li>Layered Silhouette: A fitted mermaid base paired with a voluminous lace over-skirt for extra drama.</li><li>Intricate Lace Details: Full-body floral appliques that flow from the bodice down to the trail.</li><li>Grand Lace Trail: A sweeping, lace-trimmed train perfect for a grand entrance.</li><li>Customizable Trail: Trail length can be adjusted for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a flawless and comfortable fit for all sizes.</li></ul>"
       },
       "price": 22000,
       "currency": "PHP",
-      "readyToWear": true,
+      "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
+      "forSale": false,
       "forRent": false,
       "images": [
         "catalog/Luna/Luna-1.jpeg"
@@ -311,7 +287,7 @@
       "currency": "PHP",
       "readyToWear": false,
       "madeToOrder": true,
-      "forSale": true,
+      "forSale": false,
       "forRent": false,
       "images": [
         "catalog/Sierra/Sierra-1.jpeg",

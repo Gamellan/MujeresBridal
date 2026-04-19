@@ -2,14 +2,19 @@
   "name": "ALYANNA",
   "description": {
     "short": "Strapless A-line gown with premium laser-cut rose lace and bold floral texture.",
-    "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱20,000</li><li>Size: Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Strapless A-Line Gown</li><li><strong>Fabric:</strong> Premium Laser-Cut Rose Lace</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Bold floral texture with a classic silhouette</li></ul><h2>Features</h2><ul><li>Rose Lace Overlay: Features a unique, all-over rose pattern for a romantic look.</li><li>Strapless Straight Neckline: A clean, elegant top that highlights the shoulders.</li><li>Structured Bodice: Provides a secure fit that flows seamlessly into the skirt.</li><li>Classic A-Line Skirt: A graceful, flared skirt that offers effortless movement.</li><li>Scalloped Hemline: Finished with beautiful rose-cut lace edges along the trail.</li><li>Customizable Trail: Trail length can be modified for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a perfect and comfortable fit.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Available as an add-on; price varies depending on length and design.</li></ul>"
+    "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱20,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> Strapless A-Line Gown</li><li><strong>Fabric:</strong> Premium Laser-Cut Rose Lace</li><li><strong>Color:</strong> White</li><li><strong>Design:</strong> Bold floral texture with a classic silhouette</li></ul><h2>Features</h2><ul><li>Rose Lace Overlay: Features a unique, all-over rose pattern for a romantic look.</li><li>Strapless Straight Neckline: A clean, elegant top that highlights the shoulders.</li><li>Structured Bodice: Provides a secure fit that flows seamlessly into the skirt.</li><li>Classic A-Line Skirt: A graceful, flared skirt that offers effortless movement.</li><li>Scalloped Hemline: Finished with beautiful rose-cut lace edges along the trail.</li><li>Customizable Trail: Trail length can be modified for Made to Order (MTO) requests.</li><li>Adjustable Back: Ensures a perfect and comfortable fit.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Available as an add-on; price varies depending on length and design.</li></ul>"
   },
   "price": 20000,
   "priceMessage": "Message us on Facebook for inquiries on custom measurements or to start your order!",
   "currency": "PHP",
   "readyToWear": false,
   "madeToOrder": true,
-  "forSale": true,
+  "forSale": false,
   "forRent": false,
-  "tags": ["aline", "strapless", "rose-lace", "romantic"]
+  "tags": [
+    "aline",
+    "strapless",
+    "rose-lace",
+    "romantic"
+  ]
 }

@@ -9,7 +9,12 @@
   "currency": "PHP",
   "readyToWear": false,
   "madeToOrder": true,
-  "forSale": true,
+  "forSale": false,
   "forRent": false,
-  "tags": ["aline", "corset", "beaded", "detachable-train"]
+  "tags": [
+    "aline",
+    "corset",
+    "beaded",
+    "detachable-train"
+  ]
 }
