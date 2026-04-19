@@ -1,0 +1,15 @@
+{
+  "name": "ARIA",
+  "description": {
+    "short": "One-shoulder A-line gown with soft pleated tulle and modern romantic details.",
+    "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱20,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> One-Shoulder A-Line</li><li><strong>Fabric:</strong> Soft Pleated Tulle</li><li><strong>Color:</strong> Ivory</li><li><strong>Design:</strong> Clean, modern, and romantic</li></ul><h2>Features</h2><ul><li>One-Shoulder Neckline: A chic, asymmetrical top with beautiful pleated details.</li><li>Sheer Waist Detail: Subtle see-through panels that show off a slim, structured fit.</li><li>Tulle Shoulder Cape: A long, airy streamer that flows behind you like a soft veil.</li><li>Full Tulle Skirt: A light and fluffy A-line skirt that moves gracefully.</li><li>Lace-up Back: An adjustable corset back to ensure a perfect, comfortable fit.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Custom lengths available to complete your bridal look.</li></ul>"
+  },
+  "price": 20000,
+  "priceMessage": "Message us on Facebook for inquiries on custom measurements or to start your order!",
+  "currency": "PHP",
+  "readyToWear": false,
+  "madeToOrder": true,
+  "forSale": true,
+  "forRent": false,
+  "tags": ["aline", "one-shoulder", "tulle", "modern"]
+}

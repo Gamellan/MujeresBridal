@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-06T14:48:14.444Z",
+  "updatedAt": "2026-04-19T15:52:45.049Z",
   "dresses": [
     {
       "slug": "Alba",
@@ -49,6 +49,31 @@
         "strapless",
         "rose-lace",
         "romantic"
+      ]
+    },
+    {
+      "slug": "Aria",
+      "name": "ARIA",
+      "description": {
+        "short": "One-shoulder A-line gown with soft pleated tulle and modern romantic details.",
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱20,000</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> One-Shoulder A-Line</li><li><strong>Fabric:</strong> Soft Pleated Tulle</li><li><strong>Color:</strong> Ivory</li><li><strong>Design:</strong> Clean, modern, and romantic</li></ul><h2>Features</h2><ul><li>One-Shoulder Neckline: A chic, asymmetrical top with beautiful pleated details.</li><li>Sheer Waist Detail: Subtle see-through panels that show off a slim, structured fit.</li><li>Tulle Shoulder Cape: A long, airy streamer that flows behind you like a soft veil.</li><li>Full Tulle Skirt: A light and fluffy A-line skirt that moves gracefully.</li><li>Lace-up Back: An adjustable corset back to ensure a perfect, comfortable fit.</li></ul><h2>Add-on</h2><ul><li>Matching Veil: Custom lengths available to complete your bridal look.</li></ul>"
+      },
+      "price": 20000,
+      "currency": "PHP",
+      "readyToWear": false,
+      "madeToOrder": true,
+      "forSale": true,
+      "forRent": false,
+      "images": [
+        "catalog/Aria/aria-1.jpeg",
+        "catalog/Aria/aria-2.jpeg"
+      ],
+      "cover": "catalog/Aria/aria-1.jpeg",
+      "tags": [
+        "aline",
+        "one-shoulder",
+        "tulle",
+        "modern"
       ]
     },
     {
@@ -274,6 +299,24 @@
         "lace",
         "dramatic"
       ]
+    },
+    {
+      "slug": "Sierra",
+      "name": "Sierra",
+      "description": "",
+      "price": null,
+      "currency": "PHP",
+      "readyToWear": true,
+      "madeToOrder": false,
+      "forSale": true,
+      "forRent": false,
+      "images": [
+        "catalog/Sierra/Sierra-1.jpeg",
+        "catalog/Sierra/Sierra-2.jpeg",
+        "catalog/Sierra/Sierra-3.jpeg"
+      ],
+      "cover": "catalog/Sierra/Sierra-1.jpeg",
+      "tags": []
     }
   ]
 }
