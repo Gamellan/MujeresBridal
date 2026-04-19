@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-19T15:53:42.697Z",
+  "updatedAt": "2026-04-19T15:55:59.783Z",
   "dresses": [
     {
       "slug": "Alba",
@@ -302,12 +302,15 @@
     },
     {
       "slug": "Sierra",
-      "name": "Sierra",
-      "description": "",
-      "price": null,
+      "name": "SIERRA",
+      "description": {
+        "short": "2-way strapless gown in shimmering organza that transforms from mermaid to A-line.",
+        "full": "<h2>Pricing &amp; Availability</h2><ul><li>Made to Order: ₱21,500</li><li>Custom size available</li></ul><h2>Details</h2><ul><li><strong>Style:</strong> 2-Way Strapless Mermaid to A-Line</li><li><strong>Fabric:</strong> Shimmering Organza</li><li><strong>Color:</strong> Pearl White</li><li><strong>Design:</strong> High-shine, modern, and versatile</li></ul><h2>Features</h2><ul><li>2-Way Design: Features a detachable full skirt, allowing you to switch from a grand A-line to a sleek mermaid silhouette.</li><li>Draped Bodice: Elegant horizontal pleating across the chest for a clean, structured look.</li><li>Shimmer Finish: Made with premium organza that catches the light with every move.</li><li>Fit and Flare Base: The inner mermaid dress hugs the curves for a sophisticated reception look.</li><li>Adjustable Back: Lace-up detail ensures the bodice stays secure and perfectly fitted.</li></ul><h2>Add-on</h2><ul><li>Lace Cathedral Veil: Hand-detailed lace veil available as an add-on to complete the classic look.</li></ul>"
+      },
+      "price": 21500,
       "currency": "PHP",
-      "readyToWear": true,
-      "madeToOrder": false,
+      "readyToWear": false,
+      "madeToOrder": true,
       "forSale": true,
       "forRent": false,
       "images": [
@@ -316,7 +319,13 @@
         "catalog/Sierra/Sierra-3.jpeg"
       ],
       "cover": "catalog/Sierra/Sierra-1.jpeg",
-      "tags": []
+      "tags": [
+        "mermaid",
+        "aline",
+        "strapless",
+        "organza",
+        "convertible"
+      ]
     }
   ]
 }
